@@ -2,7 +2,7 @@
   "name": "fertilikey",
   "version": "1.0.0",
   "scripts": {
-    "dev": "webpack --mode development --watch",
+    "dev": "node webpack.watch.js",
     "build": "webpack --mode production"
   },
   "devDependencies": {

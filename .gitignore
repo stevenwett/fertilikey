@@ -3,3 +3,5 @@
 /public/css/*
 /public/js/*
 /public/js/app.js
+/public/api/.env
+/public/api/node_modules
