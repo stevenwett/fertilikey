@@ -1,0 +1,76 @@
+// Colors
+
+// Border radius
+// $border-radius: 10px;
+// $border-radius-sm: 6px;
+
+// Fonts
+// $font-family-base: 'futura-pt', 'Nunito Sans', sans-serif;
+// $font-size-base: 1rem;
+// $font-color: $gray-900;
+// $font-weight-base: 300;
+
+// Headings
+// $h1-font-size: 2.75rem;
+// $h2-font-size: 1.4rem;
+
+// $headings-font-weight: 700;
+// $headings-line-height: 1.1;
+// $headings-color: $blue;
+// $headings-margin-bottom: 0.5rem;
+
+// Card
+// $card-border-color: $gray-100;
+
+// Custom breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 501px,
+  md: 601px,
+  lg: 701px,
+  xl: 801px,
+  xxl: 1000px
+);
+
+// Container max-widths
+$container-max-widths: (
+  sm: 600px,
+  md: 700px,
+  lg: 800px,
+  xl: 900px,
+  xxl: 1100px
+);
+
+// Import Bootstrap Icons
+$bootstrap-icons-font-src: url("bootstrap-icons/font/fonts/bootstrap-icons.woff2") format("woff2"),
+    url("bootstrap-icons/font/fonts/bootstrap-icons.woff") format("woff");
+@import "bootstrap-icons/font/bootstrap-icons.scss";
+
+// Required Bootstrap files
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/root";
+
+// Only the Bootstrap components we need
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/card";
+@import "bootstrap/scss/helpers";
+@import "bootstrap/scss/utilities";
+@import "bootstrap/scss/utilities/api";
+
+// Styling
+
+footer {
+    padding: 8px 0;
+
+    p,
+    a {
+        font-size: 0.9rem;
+    }
+}
