@@ -43,9 +43,9 @@ app.get('/api/institutions/search', async (req, res) => {
   try {
     const [rows] = await pool.query(
       `SELECT * FROM institutions 
-       WHERE SponsorName LIKE ? OR SponsorCity LIKE ? 
+       WHERE name LIKE ? OR city LIKE ? OR state_name LIKE ? 
        LIMIT 5`,
-      [`%${term}%`, `%${term}%`]
+      [`%${term}%`, `%${term}%`, , `%${term}%`]
     );
     res.json(rows);
   } catch (error) {
