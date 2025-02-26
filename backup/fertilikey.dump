@@ -1,0 +1,1089 @@
+-- MySQL dump 10.13  Distrib 8.0.27, for macos11 (arm64)
+--
+-- Host: 127.0.0.1    Database: fertilikey
+-- ------------------------------------------------------
+-- Server version	9.2.0
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `conflict_log`
+--
+
+DROP TABLE IF EXISTS `conflict_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `conflict_log` (
+  `sponsor_code` bigint DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `conflict_type` varchar(50) DEFAULT NULL,
+  `obgyn_value` varchar(255) DEFAULT NULL,
+  `plastics_value` varchar(255) DEFAULT NULL,
+  `severity` varchar(20) DEFAULT NULL,
+  `resolution_action` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `institutions`
+--
+
+DROP TABLE IF EXISTS `institutions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `institutions` (
+  `sponsor_code` bigint DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `city` varchar(100) DEFAULT NULL,
+  `state_name` varchar(50) DEFAULT NULL,
+  `postal_code` varchar(20) DEFAULT NULL,
+  `address_1` varchar(255) DEFAULT NULL,
+  `address_2` varchar(255) DEFAULT NULL,
+  `address_3` varchar(255) DEFAULT NULL,
+  `url` varchar(800) DEFAULT NULL,
+  `maternal_leave_weeks` int DEFAULT NULL,
+  `maternal_leave_notes` text,
+  `paternal_leave_weeks` int DEFAULT NULL,
+  `paternal_leave_notes` text,
+  `has_fertility_benefits` tinyint(1) DEFAULT NULL,
+  `fertility_benefits_notes` text,
+  `data_source` text,
+  `data_method` text,
+  `benefit_amount` bigint DEFAULT NULL,
+  `benefits_offered` text,
+  `limits_for_coverage` text,
+  `elective_treatment_covered` text,
+  `other_details` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `programs_obgyn`
+--
+
+DROP TABLE IF EXISTS `programs_obgyn`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `programs_obgyn` (
+  `program_code` bigint DEFAULT NULL,
+  `name` text,
+  `year` int DEFAULT NULL,
+  `sponsor_code` bigint DEFAULT NULL,
+  `maternal_leave_weeks` int DEFAULT NULL,
+  `maternal_leave_notes` text,
+  `paternal_leave_weeks` int DEFAULT NULL,
+  `paternal_leave_notes` text,
+  `has_fertility_benefits` tinyint(1) DEFAULT NULL,
+  `data_source` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `data_method` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `benefit_amount` bigint DEFAULT NULL,
+  `benefits_offered` text,
+  `limits_for_coverage` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `elective_treatment_covered` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `other_details` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `programs_plastics`
+--
+
+DROP TABLE IF EXISTS `programs_plastics`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `programs_plastics` (
+  `program_code` bigint DEFAULT NULL,
+  `name` text,
+  `year` int DEFAULT NULL,
+  `sponsor_code` bigint DEFAULT NULL,
+  `maternal_leave_weeks` int DEFAULT NULL,
+  `maternal_leave_notes` text,
+  `paternal_leave_weeks` int DEFAULT NULL,
+  `paternal_leave_notes` text,
+  `has_fertility_benefits` tinyint(1) DEFAULT NULL,
+  `data_source` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `data_method` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `benefit_amount` bigint DEFAULT NULL,
+  `benefits_offered` text,
+  `limits_for_coverage` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `elective_treatment_covered` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `other_details` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `temp_institutions`
+--
+
+DROP TABLE IF EXISTS `temp_institutions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `temp_institutions` (
+  `sponsor_code` bigint DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `city` varchar(100) DEFAULT NULL,
+  `state_name` varchar(50) DEFAULT NULL,
+  `postal_code` varchar(20) DEFAULT NULL,
+  `address_1` varchar(255) DEFAULT NULL,
+  `address_2` varchar(255) DEFAULT NULL,
+  `address_3` varchar(255) DEFAULT NULL,
+  `url` varchar(800) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `temp_programs_obgyn`
+--
+
+DROP TABLE IF EXISTS `temp_programs_obgyn`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `temp_programs_obgyn` (
+  `program_code` bigint DEFAULT NULL,
+  `name` text,
+  `year` int DEFAULT NULL,
+  `sponsor_code` bigint DEFAULT NULL,
+  `maternal_leave_weeks` text,
+  `maternal_leave_notes` text,
+  `paternal_leave_weeks` text,
+  `paternal_leave_notes` text,
+  `has_fertility_benefits` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `data_source` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `data_method` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `benefit_amount` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `benefits_offered` text,
+  `limits_for_coverage` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `elective_treatment_covered` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `other_details` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `temp_programs_plastics`
+--
+
+DROP TABLE IF EXISTS `temp_programs_plastics`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `temp_programs_plastics` (
+  `program_code` bigint DEFAULT NULL,
+  `name` text,
+  `year` int DEFAULT NULL,
+  `sponsor_code` bigint DEFAULT NULL,
+  `maternal_leave_weeks` text,
+  `maternal_leave_notes` text,
+  `paternal_leave_weeks` text,
+  `paternal_leave_notes` text,
+  `has_fertility_benefits` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `data_source` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `data_method` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `benefit_amount` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `benefits_offered` text,
+  `limits_for_coverage` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `elective_treatment_covered` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `other_details` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping routines for database 'fertilikey'
+--
+/*!50003 DROP PROCEDURE IF EXISTS `migrate_all_data` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`fertilikey_user`@`localhost` PROCEDURE `migrate_all_data`()
+BEGIN
+    DECLARE obgyn_count INT;
+    DECLARE plastics_count INT;
+    DECLARE institutions_count INT;
+    DECLARE conflict_count INT;
+    
+    -- Increase GROUP_CONCAT max length to avoid truncation
+    SET SESSION group_concat_max_len = 1000000;
+    
+    -- Start by migrating OBGYN data
+    CALL migrate_obgyn_programs_data();
+    SELECT COUNT(*) INTO obgyn_count FROM programs_obgyn;
+    
+    -- Then migrate Plastics data
+    CALL migrate_plastics_programs_data();
+    SELECT COUNT(*) INTO plastics_count FROM programs_plastics;
+    
+    -- Before final merge, identify and log potential conflicts
+    DROP TABLE IF EXISTS conflict_log;
+    CREATE TABLE conflict_log (
+        sponsor_code BIGINT,
+        name VARCHAR(255),
+        conflict_type VARCHAR(50),
+        obgyn_value VARCHAR(255),
+        plastics_value VARCHAR(255),
+        severity VARCHAR(20),
+        resolution_action VARCHAR(100)
+    );
+    
+    -- Log maternal leave week conflicts
+    INSERT INTO conflict_log
+    SELECT 
+        o.sponsor_code,
+        COALESCE(
+            (SELECT name FROM temp_institutions WHERE sponsor_code = o.sponsor_code LIMIT 1),
+            (SELECT name FROM programs_obgyn WHERE sponsor_code = o.sponsor_code LIMIT 1)
+        ) AS name,
+        'Maternal Leave Weeks' AS conflict_type,
+        CAST(o.avg_mat_weeks AS CHAR) AS obgyn_value,
+        CAST(p.avg_mat_weeks AS CHAR) AS plastics_value,
+        CASE 
+            WHEN ABS(o.avg_mat_weeks - p.avg_mat_weeks) > 4 THEN 'High'
+            WHEN ABS(o.avg_mat_weeks - p.avg_mat_weeks) > 2 THEN 'Medium'
+            ELSE 'Low'
+        END AS severity,
+        CASE
+            WHEN ABS(o.avg_mat_weeks - p.avg_mat_weeks) > 4 THEN 'Manual review required'
+            ELSE 'Used average of values'
+        END AS resolution_action
+    FROM (
+        SELECT sponsor_code, AVG(maternal_leave_weeks) AS avg_mat_weeks
+        FROM programs_obgyn 
+        WHERE sponsor_code IS NOT NULL AND maternal_leave_weeks IS NOT NULL
+        GROUP BY sponsor_code
+    ) o
+    JOIN (
+        SELECT sponsor_code, AVG(maternal_leave_weeks) AS avg_mat_weeks
+        FROM programs_plastics
+        WHERE sponsor_code IS NOT NULL AND maternal_leave_weeks IS NOT NULL
+        GROUP BY sponsor_code
+    ) p ON o.sponsor_code = p.sponsor_code
+    WHERE ABS(o.avg_mat_weeks - p.avg_mat_weeks) > 1;
+    
+    -- Log paternal leave week conflicts
+    INSERT INTO conflict_log
+    SELECT 
+        o.sponsor_code,
+        COALESCE(
+            (SELECT name FROM temp_institutions WHERE sponsor_code = o.sponsor_code LIMIT 1),
+            (SELECT name FROM programs_obgyn WHERE sponsor_code = o.sponsor_code LIMIT 1)
+        ) AS name,
+        'Paternal Leave Weeks' AS conflict_type,
+        CAST(o.avg_pat_weeks AS CHAR) AS obgyn_value,
+        CAST(p.avg_pat_weeks AS CHAR) AS plastics_value,
+        CASE 
+            WHEN ABS(o.avg_pat_weeks - p.avg_pat_weeks) > 4 THEN 'High'
+            WHEN ABS(o.avg_pat_weeks - p.avg_pat_weeks) > 2 THEN 'Medium'
+            ELSE 'Low'
+        END AS severity,
+        CASE
+            WHEN ABS(o.avg_pat_weeks - p.avg_pat_weeks) > 4 THEN 'Manual review required'
+            ELSE 'Used average of values'
+        END AS resolution_action
+    FROM (
+        SELECT sponsor_code, AVG(paternal_leave_weeks) AS avg_pat_weeks
+        FROM programs_obgyn 
+        WHERE sponsor_code IS NOT NULL AND paternal_leave_weeks IS NOT NULL
+        GROUP BY sponsor_code
+    ) o
+    JOIN (
+        SELECT sponsor_code, AVG(paternal_leave_weeks) AS avg_pat_weeks
+        FROM programs_plastics
+        WHERE sponsor_code IS NOT NULL AND paternal_leave_weeks IS NOT NULL
+        GROUP BY sponsor_code
+    ) p ON o.sponsor_code = p.sponsor_code
+    WHERE ABS(o.avg_pat_weeks - p.avg_pat_weeks) > 1;
+    
+    -- Log fertility benefits conflicts
+    INSERT INTO conflict_log
+    SELECT 
+        o.sponsor_code,
+        COALESCE(
+            (SELECT name FROM temp_institutions WHERE sponsor_code = o.sponsor_code LIMIT 1),
+            (SELECT name FROM programs_obgyn WHERE sponsor_code = o.sponsor_code LIMIT 1)
+        ) AS name,
+        'Fertility Benefits' AS conflict_type,
+        CASE o.has_benefits WHEN 1 THEN 'Yes' WHEN 0 THEN 'No' ELSE 'NULL' END AS obgyn_value,
+        CASE p.has_benefits WHEN 1 THEN 'Yes' WHEN 0 THEN 'No' ELSE 'NULL' END AS plastics_value,
+        'High' AS severity,
+        'Used "Yes" if either source reported benefits' AS resolution_action
+    FROM (
+        SELECT sponsor_code, MAX(has_fertility_benefits) AS has_benefits
+        FROM programs_obgyn 
+        WHERE sponsor_code IS NOT NULL
+        GROUP BY sponsor_code
+    ) o
+    JOIN (
+        SELECT sponsor_code, MAX(has_fertility_benefits) AS has_benefits
+        FROM programs_plastics
+        WHERE sponsor_code IS NOT NULL
+        GROUP BY sponsor_code
+    ) p ON o.sponsor_code = p.sponsor_code
+    WHERE (o.has_benefits IS NOT NULL AND p.has_benefits IS NOT NULL) 
+      AND o.has_benefits != p.has_benefits;
+    
+    -- Get conflict count
+    SELECT COUNT(*) INTO conflict_count FROM conflict_log;
+    
+    -- Finally merge all data into institutions
+    CALL migrate_to_institutions();
+    SELECT COUNT(*) INTO institutions_count FROM institutions;
+    
+    -- Output summary
+    SELECT 
+        CONCAT('Complete migration finished. Found ', conflict_count, ' data conflicts.') AS result,
+        obgyn_count AS obgyn_records_migrated,
+        plastics_count AS plastics_records_migrated,
+        institutions_count AS institutions_created,
+        conflict_count AS data_conflicts_identified;
+    
+    -- Output detailed conflict summary by type and severity
+    SELECT 
+        conflict_type,
+        severity,
+        COUNT(*) AS count
+    FROM conflict_log
+    GROUP BY conflict_type, severity
+    ORDER BY 
+        CASE conflict_type
+            WHEN 'Maternal Leave Weeks' THEN 1
+            WHEN 'Paternal Leave Weeks' THEN 2
+            WHEN 'Fertility Benefits' THEN 3
+            ELSE 4
+        END,
+        CASE severity
+            WHEN 'High' THEN 1
+            WHEN 'Medium' THEN 2
+            WHEN 'Low' THEN 3
+            ELSE 4
+        END;
+    
+    -- Output high severity conflicts that need immediate attention
+    SELECT 'HIGH SEVERITY CONFLICTS REQUIRING MANUAL REVIEW:' AS message;
+    
+    SELECT 
+        sponsor_code,
+        name,
+        conflict_type,
+        obgyn_value,
+        plastics_value,
+        resolution_action
+    FROM conflict_log
+    WHERE severity = 'High'
+    ORDER BY conflict_type, sponsor_code
+    LIMIT 50;
+    
+    -- Optional: Create a conflict resolution script
+    SELECT 'RECOMMENDED CONFLICT RESOLUTIONS (SAMPLE SQL):' AS message;
+    
+    -- Generate sample SQL statements to fix high severity conflicts
+    SELECT CONCAT(
+        'UPDATE institutions SET ', 
+        CASE conflict_type
+            WHEN 'Maternal Leave Weeks' THEN 'maternal_leave_weeks'
+            WHEN 'Paternal Leave Weeks' THEN 'paternal_leave_weeks'
+            WHEN 'Fertility Benefits' THEN 'has_fertility_benefits'
+        END,
+        ' = /* REVIEW AND CHOOSE: OBGYN value: ', obgyn_value, ', PLASTICS value: ', plastics_value, ' */ ',
+        CASE conflict_type
+            WHEN 'Fertility Benefits' THEN 
+                CASE 
+                    WHEN obgyn_value = 'Yes' OR plastics_value = 'Yes' THEN '1'
+                    ELSE '0'
+                END
+            ELSE CONCAT('/* MANUALLY ENTER CORRECT VALUE */')
+        END,
+        ' WHERE sponsor_code = ', sponsor_code, ';'
+    ) AS fix_sql
+    FROM conflict_log
+    WHERE severity = 'High'
+    ORDER BY conflict_type, sponsor_code
+    LIMIT 25;
+    
+    -- Count institutions with no benefits data
+    SELECT COUNT(*) AS institutions_missing_benefits
+    FROM institutions
+    WHERE maternal_leave_weeks IS NULL 
+    AND paternal_leave_weeks IS NULL 
+    AND has_fertility_benefits IS NULL;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `migrate_obgyn_programs_data` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`fertilikey_user`@`localhost` PROCEDURE `migrate_obgyn_programs_data`()
+BEGIN
+    -- Clear the destination table to avoid duplicates
+    TRUNCATE TABLE programs_obgyn;
+    
+    -- Insert data with enhanced type conversions
+    INSERT INTO programs_obgyn (
+        program_code,
+        name,
+        year,
+        sponsor_code,
+        maternal_leave_weeks,
+        maternal_leave_notes,
+        paternal_leave_weeks,
+        paternal_leave_notes,
+        has_fertility_benefits,
+        data_source,
+        data_method,
+        benefit_amount,
+        benefits_offered,
+        limits_for_coverage,
+        elective_treatment_covered,
+        other_details
+    )
+    SELECT 
+        t.program_code,
+        t.name,
+        t.year,
+        t.sponsor_code,
+        -- Enhanced conversion for maternal_leave_weeks without modifying notes
+        CASE
+            -- First check if maternal_leave_weeks has usable data
+            WHEN TRIM(t.maternal_leave_weeks) REGEXP '[0-9]+(\\.[0-9]+)?' THEN 
+                CAST(REGEXP_SUBSTR(TRIM(t.maternal_leave_weeks), '[0-9]+(\\.[0-9]+)?') AS UNSIGNED)
+            WHEN TRIM(t.maternal_leave_weeks) REGEXP '(up to|maximum|max|up to a max of|approx|approximately)[^0-9]*([0-9]+)' THEN
+                CAST(REGEXP_SUBSTR(TRIM(t.maternal_leave_weeks), '([0-9]+)') AS UNSIGNED)
+            WHEN LOWER(TRIM(t.maternal_leave_weeks)) LIKE '%six%' THEN 6
+            WHEN LOWER(TRIM(t.maternal_leave_weeks)) LIKE '%eight%' THEN 8
+            WHEN LOWER(TRIM(t.maternal_leave_weeks)) LIKE '%twelve%' THEN 12
+            WHEN LOWER(TRIM(t.maternal_leave_weeks)) LIKE '%sixteen%' THEN 16
+            
+            -- Handle special string cases that should return NULL
+            WHEN LOWER(TRIM(t.maternal_leave_weeks)) IN ('not found', 'n/a', 'none', 'unknown', 'unclear', 'no policy') THEN NULL
+            
+            -- If maternal_leave_weeks is empty or NULL, check maternal_leave_notes for numeric values
+            WHEN (t.maternal_leave_weeks IS NULL OR TRIM(t.maternal_leave_weeks) = '') AND TRIM(t.maternal_leave_notes) REGEXP '^[0-9]+(\\.[0-9]+)?$' THEN
+                CAST(REGEXP_SUBSTR(TRIM(t.maternal_leave_notes), '[0-9]+(\\.[0-9]+)?') AS UNSIGNED)
+            WHEN (t.maternal_leave_weeks IS NULL OR TRIM(t.maternal_leave_weeks) = '') AND TRIM(t.maternal_leave_notes) REGEXP '^([0-9]+)' THEN
+                CAST(REGEXP_SUBSTR(TRIM(t.maternal_leave_notes), '^([0-9]+)') AS UNSIGNED)
+            WHEN (t.maternal_leave_weeks IS NULL OR TRIM(t.maternal_leave_weeks) = '') AND LOWER(TRIM(t.maternal_leave_notes)) LIKE 'six%' THEN 6
+            WHEN (t.maternal_leave_weeks IS NULL OR TRIM(t.maternal_leave_weeks) = '') AND LOWER(TRIM(t.maternal_leave_notes)) LIKE 'eight%' THEN 8
+            WHEN (t.maternal_leave_weeks IS NULL OR TRIM(t.maternal_leave_weeks) = '') AND LOWER(TRIM(t.maternal_leave_notes)) LIKE 'twelve%' THEN 12
+            WHEN (t.maternal_leave_weeks IS NULL OR TRIM(t.maternal_leave_weeks) = '') AND LOWER(TRIM(t.maternal_leave_notes)) LIKE 'sixteen%' THEN 16
+            -- Skip when maternal_leave_notes contains special cases
+            WHEN (t.maternal_leave_weeks IS NULL OR TRIM(t.maternal_leave_weeks) = '') AND 
+                 LOWER(TRIM(t.maternal_leave_notes)) IN ('not found', 'n/a', 'none', 'unknown', 'unclear', 'no policy') THEN NULL
+                 
+            -- Default null if no pattern matches
+            ELSE NULL
+        END AS maternal_leave_weeks,
+        
+        -- Store original notes without modification
+        t.maternal_leave_notes AS maternal_leave_notes,
+        
+        -- Enhanced conversion for paternal_leave_weeks without modifying notes
+        CASE
+            -- Try to extract numbers even with surrounding text
+            WHEN TRIM(t.paternal_leave_weeks) REGEXP '[0-9]+(\\.[0-9]+)?' THEN 
+                CAST(REGEXP_SUBSTR(TRIM(t.paternal_leave_weeks), '[0-9]+(\\.[0-9]+)?') AS UNSIGNED)
+            WHEN TRIM(t.paternal_leave_weeks) REGEXP '(up to|maximum|max|up to a max of|approx|approximately)[^0-9]*([0-9]+)' THEN
+                CAST(REGEXP_SUBSTR(TRIM(t.paternal_leave_weeks), '([0-9]+)') AS UNSIGNED)
+            WHEN LOWER(TRIM(t.paternal_leave_weeks)) LIKE '%six%' THEN 6
+            WHEN LOWER(TRIM(t.paternal_leave_weeks)) LIKE '%eight%' THEN 8
+            WHEN LOWER(TRIM(t.paternal_leave_weeks)) LIKE '%twelve%' THEN 12
+            WHEN LOWER(TRIM(t.paternal_leave_weeks)) LIKE '%sixteen%' THEN 16
+            
+            -- Handle special string cases that should return NULL
+            WHEN LOWER(TRIM(t.paternal_leave_weeks)) IN ('not found', 'n/a', 'none', 'unknown', 'unclear', 'no policy') THEN NULL
+            
+            -- If paternal_leave_weeks is empty or NULL, check paternal_leave_notes for numeric values
+            WHEN (t.paternal_leave_weeks IS NULL OR TRIM(t.paternal_leave_weeks) = '') AND TRIM(t.paternal_leave_notes) REGEXP '^[0-9]+(\\.[0-9]+)?$' THEN
+                CAST(REGEXP_SUBSTR(TRIM(t.paternal_leave_notes), '[0-9]+(\\.[0-9]+)?') AS UNSIGNED)
+            WHEN (t.paternal_leave_weeks IS NULL OR TRIM(t.paternal_leave_weeks) = '') AND TRIM(t.paternal_leave_notes) REGEXP '^([0-9]+)' THEN
+                CAST(REGEXP_SUBSTR(TRIM(t.paternal_leave_notes), '^([0-9]+)') AS UNSIGNED)
+            WHEN (t.paternal_leave_weeks IS NULL OR TRIM(t.paternal_leave_weeks) = '') AND LOWER(TRIM(t.paternal_leave_notes)) LIKE 'six%' THEN 6
+            WHEN (t.paternal_leave_weeks IS NULL OR TRIM(t.paternal_leave_weeks) = '') AND LOWER(TRIM(t.paternal_leave_notes)) LIKE 'eight%' THEN 8
+            WHEN (t.paternal_leave_weeks IS NULL OR TRIM(t.paternal_leave_weeks) = '') AND LOWER(TRIM(t.paternal_leave_notes)) LIKE 'twelve%' THEN 12
+            WHEN (t.paternal_leave_weeks IS NULL OR TRIM(t.paternal_leave_weeks) = '') AND LOWER(TRIM(t.paternal_leave_notes)) LIKE 'sixteen%' THEN 16
+            -- Skip when paternal_leave_notes contains special cases
+            WHEN (t.paternal_leave_weeks IS NULL OR TRIM(t.paternal_leave_weeks) = '') AND 
+                 LOWER(TRIM(t.paternal_leave_notes)) IN ('not found', 'n/a', 'none', 'unknown', 'unclear', 'no policy') THEN NULL
+                 
+            -- Default null if no pattern matches
+            ELSE NULL
+        END AS paternal_leave_weeks,
+        
+        -- Store original notes without modification
+        t.paternal_leave_notes AS paternal_leave_notes,
+        
+        -- Convert fertility benefits to boolean with TRIM to handle whitespace
+        CASE 
+            WHEN LOWER(TRIM(t.has_fertility_benefits)) IN ('yes', 'y', 'true', '1', 'offered', 'available') THEN 1
+            WHEN LOWER(TRIM(t.has_fertility_benefits)) IN ('no', 'n', 'false', '0', 'none', 'not offered') THEN 0
+            ELSE NULL
+        END AS has_fertility_benefits,
+        
+        t.data_source,
+        t.data_method,
+        
+        -- Enhanced benefit amount extraction with TRIM for whitespace handling
+        CASE
+            -- First check benefit_amount field for dollar values
+            WHEN TRIM(t.benefit_amount) REGEXP '\\$([0-9,]+)' THEN 
+                CAST(REPLACE(REPLACE(REGEXP_SUBSTR(TRIM(t.benefit_amount), '\\$([0-9,]+)'), '$', ''), ',', '') AS UNSIGNED)
+            -- Then check benefits_offered field for dollar amounts if no amount found
+            WHEN (t.benefit_amount IS NULL OR TRIM(t.benefit_amount) = '') AND TRIM(t.benefits_offered) REGEXP '\\$([0-9,]+)' THEN 
+                CAST(REPLACE(REPLACE(REGEXP_SUBSTR(TRIM(t.benefits_offered), '\\$([0-9,]+)'), '$', ''), ',', '') AS UNSIGNED)
+            -- Look for "X thousand" or "X,000" patterns
+            WHEN TRIM(t.benefits_offered) REGEXP '([0-9]+)[\\s-]*thousand' THEN 
+                CAST(REGEXP_SUBSTR(TRIM(t.benefits_offered), '([0-9]+)[\\s-]*thousand') AS UNSIGNED) * 1000
+            WHEN TRIM(t.benefits_offered) REGEXP '([0-9]+)[\\s-]*k' THEN 
+                CAST(REGEXP_SUBSTR(TRIM(t.benefits_offered), '([0-9]+)[\\s-]*k') AS UNSIGNED) * 1000
+            ELSE NULL
+        END AS benefit_amount,
+       
+        t.benefits_offered,
+        t.limits_for_coverage,
+        t.elective_treatment_covered,
+        t.other_details
+    FROM temp_programs_obgyn t;
+    
+    -- Create a log of data transformations that may need review
+    DROP TEMPORARY TABLE IF EXISTS transformation_log_obgyn;
+    CREATE TEMPORARY TABLE transformation_log_obgyn (
+        program_code BIGINT,
+        field_name VARCHAR(50),
+        original_value TEXT,
+        transformed_value TEXT,
+        note TEXT
+    );
+    
+    -- Insert logs for maternal leave conversion issues
+    INSERT INTO transformation_log_obgyn
+    SELECT t.program_code, 'maternal_leave_weeks', 
+           CONCAT('maternal_leave_weeks: ', IFNULL(t.maternal_leave_weeks, 'NULL'), ', maternal_leave_notes: ', IFNULL(t.maternal_leave_notes, 'NULL')), 
+           CAST(p.maternal_leave_weeks AS CHAR), 'Potential conversion issue'
+    FROM temp_programs_obgyn t
+    LEFT JOIN programs_obgyn p ON t.program_code = p.program_code
+    WHERE ((t.maternal_leave_weeks IS NOT NULL AND TRIM(t.maternal_leave_weeks) != '') 
+           OR (t.maternal_leave_notes IS NOT NULL AND TRIM(t.maternal_leave_notes) REGEXP '^[0-9]'))
+    AND p.maternal_leave_weeks IS NULL
+    AND LOWER(TRIM(IFNULL(t.maternal_leave_weeks, ''))) NOT IN ('not found', 'n/a', 'none', 'unknown', 'unclear', 'no policy');
+    
+    -- Log paternal leave conversion issues
+    INSERT INTO transformation_log_obgyn
+    SELECT t.program_code, 'paternal_leave_weeks', 
+           CONCAT('paternal_leave_weeks: ', IFNULL(t.paternal_leave_weeks, 'NULL'), ', paternal_leave_notes: ', IFNULL(t.paternal_leave_notes, 'NULL')), 
+           CAST(p.paternal_leave_weeks AS CHAR), 'Potential conversion issue'
+    FROM temp_programs_obgyn t
+    LEFT JOIN programs_obgyn p ON t.program_code = p.program_code
+    WHERE ((t.paternal_leave_weeks IS NOT NULL AND TRIM(t.paternal_leave_weeks) != '') 
+           OR (t.paternal_leave_notes IS NOT NULL AND TRIM(t.paternal_leave_notes) REGEXP '^[0-9]'))
+    AND p.paternal_leave_weeks IS NULL
+    AND LOWER(TRIM(IFNULL(t.paternal_leave_weeks, ''))) NOT IN ('not found', 'n/a', 'none', 'unknown', 'unclear', 'no policy');
+    
+    -- Log fertility benefits conversion issues
+    INSERT INTO transformation_log_obgyn
+    SELECT t.program_code, 'has_fertility_benefits', t.has_fertility_benefits, 
+           CAST(p.has_fertility_benefits AS CHAR), 'Potential conversion issue'
+    FROM temp_programs_obgyn t
+    LEFT JOIN programs_obgyn p ON t.program_code = p.program_code
+    WHERE t.has_fertility_benefits IS NOT NULL 
+    AND TRIM(t.has_fertility_benefits) != ''
+    AND LOWER(TRIM(t.has_fertility_benefits)) != 'unclear'
+    AND p.has_fertility_benefits IS NULL;
+    
+    -- Log benefit amount conversion issues
+    INSERT INTO transformation_log_obgyn
+    SELECT t.program_code, 'benefit_amount', 
+           CONCAT('benefit_amount: ', t.benefit_amount, ', benefits_offered: ', t.benefits_offered), 
+           CAST(p.benefit_amount AS CHAR), 'Potential benefit amount conversion issue'
+    FROM temp_programs_obgyn t
+    LEFT JOIN programs_obgyn p ON t.program_code = p.program_code
+    WHERE ((t.benefit_amount IS NOT NULL AND TRIM(t.benefit_amount) != '') 
+           OR (t.benefits_offered IS NOT NULL AND TRIM(t.benefits_offered) REGEXP '\\$|thousand|k'))
+    AND p.benefit_amount IS NULL;
+    
+    -- Log output
+    SELECT COUNT(*) AS issues_to_review FROM transformation_log_obgyn;
+    
+    -- Display sample issues if any exist
+    SELECT * FROM transformation_log_obgyn LIMIT 10;
+    
+    -- Summary
+    SELECT CONCAT('Migration completed. ', COUNT(*), ' OBGYN records transferred.') AS migration_status 
+    FROM programs_obgyn;
+    
+    -- Clean up
+    DROP TEMPORARY TABLE IF EXISTS transformation_log_obgyn;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `migrate_plastics_programs_data` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`fertilikey_user`@`localhost` PROCEDURE `migrate_plastics_programs_data`()
+BEGIN
+    -- Clear the destination table to avoid duplicates
+    TRUNCATE TABLE programs_plastics;
+    
+    -- Insert data with enhanced type conversions
+    INSERT INTO programs_plastics (
+        program_code,
+        name,
+        year,
+        sponsor_code,
+        maternal_leave_weeks,
+        maternal_leave_notes,
+        paternal_leave_weeks,
+        paternal_leave_notes,
+        has_fertility_benefits,
+        data_source,
+        data_method,
+        benefit_amount,
+        benefits_offered,
+        limits_for_coverage,
+        elective_treatment_covered,
+        other_details
+    )
+    SELECT 
+        t.program_code,
+        t.name,
+        t.year,
+        t.sponsor_code,
+        -- Enhanced conversion for maternal_leave_weeks without modifying notes
+        CASE
+            -- First check if maternal_leave_weeks has usable data
+            WHEN TRIM(t.maternal_leave_weeks) REGEXP '[0-9]+(\\.[0-9]+)?' THEN 
+                CAST(REGEXP_SUBSTR(TRIM(t.maternal_leave_weeks), '[0-9]+(\\.[0-9]+)?') AS UNSIGNED)
+            WHEN TRIM(t.maternal_leave_weeks) REGEXP '(up to|maximum|max|up to a max of|approx|approximately)[^0-9]*([0-9]+)' THEN
+                CAST(REGEXP_SUBSTR(TRIM(t.maternal_leave_weeks), '([0-9]+)') AS UNSIGNED)
+            WHEN LOWER(TRIM(t.maternal_leave_weeks)) LIKE '%six%' THEN 6
+            WHEN LOWER(TRIM(t.maternal_leave_weeks)) LIKE '%eight%' THEN 8
+            WHEN LOWER(TRIM(t.maternal_leave_weeks)) LIKE '%twelve%' THEN 12
+            WHEN LOWER(TRIM(t.maternal_leave_weeks)) LIKE '%sixteen%' THEN 16
+            
+            -- Handle special string cases that should return NULL
+            WHEN LOWER(TRIM(t.maternal_leave_weeks)) IN ('not found', 'n/a', 'none', 'unknown', 'unclear', 'no policy') THEN NULL
+            
+            -- If maternal_leave_weeks is empty or NULL, check maternal_leave_notes for numeric values
+            WHEN (t.maternal_leave_weeks IS NULL OR TRIM(t.maternal_leave_weeks) = '') AND TRIM(t.maternal_leave_notes) REGEXP '^[0-9]+(\\.[0-9]+)?$' THEN
+                CAST(REGEXP_SUBSTR(TRIM(t.maternal_leave_notes), '[0-9]+(\\.[0-9]+)?') AS UNSIGNED)
+            WHEN (t.maternal_leave_weeks IS NULL OR TRIM(t.maternal_leave_weeks) = '') AND TRIM(t.maternal_leave_notes) REGEXP '^([0-9]+)' THEN
+                CAST(REGEXP_SUBSTR(TRIM(t.maternal_leave_notes), '^([0-9]+)') AS UNSIGNED)
+            WHEN (t.maternal_leave_weeks IS NULL OR TRIM(t.maternal_leave_weeks) = '') AND LOWER(TRIM(t.maternal_leave_notes)) LIKE 'six%' THEN 6
+            WHEN (t.maternal_leave_weeks IS NULL OR TRIM(t.maternal_leave_weeks) = '') AND LOWER(TRIM(t.maternal_leave_notes)) LIKE 'eight%' THEN 8
+            WHEN (t.maternal_leave_weeks IS NULL OR TRIM(t.maternal_leave_weeks) = '') AND LOWER(TRIM(t.maternal_leave_notes)) LIKE 'twelve%' THEN 12
+            WHEN (t.maternal_leave_weeks IS NULL OR TRIM(t.maternal_leave_weeks) = '') AND LOWER(TRIM(t.maternal_leave_notes)) LIKE 'sixteen%' THEN 16
+            -- Skip when maternal_leave_notes contains special cases
+            WHEN (t.maternal_leave_weeks IS NULL OR TRIM(t.maternal_leave_weeks) = '') AND 
+                 LOWER(TRIM(t.maternal_leave_notes)) IN ('not found', 'n/a', 'none', 'unknown', 'unclear', 'no policy') THEN NULL
+                 
+            -- Default null if no pattern matches
+            ELSE NULL
+        END AS maternal_leave_weeks,
+        
+        -- Store original notes without modification
+        t.maternal_leave_notes AS maternal_leave_notes,
+        
+        -- Enhanced conversion for paternal_leave_weeks without modifying notes
+        CASE
+            -- Try to extract numbers even with surrounding text
+            WHEN TRIM(t.paternal_leave_weeks) REGEXP '[0-9]+(\\.[0-9]+)?' THEN 
+                CAST(REGEXP_SUBSTR(TRIM(t.paternal_leave_weeks), '[0-9]+(\\.[0-9]+)?') AS UNSIGNED)
+            WHEN TRIM(t.paternal_leave_weeks) REGEXP '(up to|maximum|max|up to a max of|approx|approximately)[^0-9]*([0-9]+)' THEN
+                CAST(REGEXP_SUBSTR(TRIM(t.paternal_leave_weeks), '([0-9]+)') AS UNSIGNED)
+            WHEN LOWER(TRIM(t.paternal_leave_weeks)) LIKE '%six%' THEN 6
+            WHEN LOWER(TRIM(t.paternal_leave_weeks)) LIKE '%eight%' THEN 8
+            WHEN LOWER(TRIM(t.paternal_leave_weeks)) LIKE '%twelve%' THEN 12
+            WHEN LOWER(TRIM(t.paternal_leave_weeks)) LIKE '%sixteen%' THEN 16
+            
+            -- Handle special string cases that should return NULL
+            WHEN LOWER(TRIM(t.paternal_leave_weeks)) IN ('not found', 'n/a', 'none', 'unknown', 'unclear', 'no policy') THEN NULL
+            
+            -- If paternal_leave_weeks is empty or NULL, check paternal_leave_notes for numeric values
+            WHEN (t.paternal_leave_weeks IS NULL OR TRIM(t.paternal_leave_weeks) = '') AND TRIM(t.paternal_leave_notes) REGEXP '^[0-9]+(\\.[0-9]+)?$' THEN
+                CAST(REGEXP_SUBSTR(TRIM(t.paternal_leave_notes), '[0-9]+(\\.[0-9]+)?') AS UNSIGNED)
+            WHEN (t.paternal_leave_weeks IS NULL OR TRIM(t.paternal_leave_weeks) = '') AND TRIM(t.paternal_leave_notes) REGEXP '^([0-9]+)' THEN
+                CAST(REGEXP_SUBSTR(TRIM(t.paternal_leave_notes), '^([0-9]+)') AS UNSIGNED)
+            WHEN (t.paternal_leave_weeks IS NULL OR TRIM(t.paternal_leave_weeks) = '') AND LOWER(TRIM(t.paternal_leave_notes)) LIKE 'six%' THEN 6
+            WHEN (t.paternal_leave_weeks IS NULL OR TRIM(t.paternal_leave_weeks) = '') AND LOWER(TRIM(t.paternal_leave_notes)) LIKE 'eight%' THEN 8
+            WHEN (t.paternal_leave_weeks IS NULL OR TRIM(t.paternal_leave_weeks) = '') AND LOWER(TRIM(t.paternal_leave_notes)) LIKE 'twelve%' THEN 12
+            WHEN (t.paternal_leave_weeks IS NULL OR TRIM(t.paternal_leave_weeks) = '') AND LOWER(TRIM(t.paternal_leave_notes)) LIKE 'sixteen%' THEN 16
+            -- Skip when paternal_leave_notes contains special cases
+            WHEN (t.paternal_leave_weeks IS NULL OR TRIM(t.paternal_leave_weeks) = '') AND 
+                 LOWER(TRIM(t.paternal_leave_notes)) IN ('not found', 'n/a', 'none', 'unknown', 'unclear', 'no policy') THEN NULL
+                 
+            -- Default null if no pattern matches
+            ELSE NULL
+        END AS paternal_leave_weeks,
+        
+        -- Store original notes without modification
+        t.paternal_leave_notes AS paternal_leave_notes,
+        
+        -- Convert fertility benefits to boolean with TRIM to handle whitespace
+        CASE 
+            WHEN LOWER(TRIM(t.has_fertility_benefits)) IN ('yes', 'y', 'true', '1', 'offered', 'available') THEN 1
+            WHEN LOWER(TRIM(t.has_fertility_benefits)) IN ('no', 'n', 'false', '0', 'none', 'not offered') THEN 0
+            ELSE NULL
+        END AS has_fertility_benefits,
+        
+        t.data_source,
+        t.data_method,
+        
+        -- Enhanced benefit amount extraction with TRIM for whitespace handling
+        CASE
+            -- First check benefit_amount field for dollar values
+            WHEN TRIM(t.benefit_amount) REGEXP '\\$([0-9,]+)' THEN 
+                CAST(REPLACE(REPLACE(REGEXP_SUBSTR(TRIM(t.benefit_amount), '\\$([0-9,]+)'), '$', ''), ',', '') AS UNSIGNED)
+            -- Then check benefits_offered field for dollar amounts if no amount found
+            WHEN (t.benefit_amount IS NULL OR TRIM(t.benefit_amount) = '') AND TRIM(t.benefits_offered) REGEXP '\\$([0-9,]+)' THEN 
+                CAST(REPLACE(REPLACE(REGEXP_SUBSTR(TRIM(t.benefits_offered), '\\$([0-9,]+)'), '$', ''), ',', '') AS UNSIGNED)
+            -- Look for "X thousand" or "X,000" patterns
+            WHEN TRIM(t.benefits_offered) REGEXP '([0-9]+)[\\s-]*thousand' THEN 
+                CAST(REGEXP_SUBSTR(TRIM(t.benefits_offered), '([0-9]+)[\\s-]*thousand') AS UNSIGNED) * 1000
+            WHEN TRIM(t.benefits_offered) REGEXP '([0-9]+)[\\s-]*k' THEN 
+                CAST(REGEXP_SUBSTR(TRIM(t.benefits_offered), '([0-9]+)[\\s-]*k') AS UNSIGNED) * 1000
+            ELSE NULL
+        END AS benefit_amount,
+       
+        t.benefits_offered,
+        t.limits_for_coverage,
+        t.elective_treatment_covered,
+        t.other_details
+    FROM temp_programs_plastics t;
+    
+    -- Create a log of data transformations that may need review
+    DROP TEMPORARY TABLE IF EXISTS transformation_log;
+    CREATE TEMPORARY TABLE transformation_log (
+        program_code BIGINT,
+        field_name VARCHAR(50),
+        original_value TEXT,
+        transformed_value TEXT,
+        note TEXT
+    );
+    
+    -- Insert logs for maternal leave conversion issues
+    INSERT INTO transformation_log
+    SELECT t.program_code, 'maternal_leave_weeks', 
+           CONCAT('maternal_leave_weeks: ', IFNULL(t.maternal_leave_weeks, 'NULL'), ', maternal_leave_notes: ', IFNULL(t.maternal_leave_notes, 'NULL')), 
+           CAST(p.maternal_leave_weeks AS CHAR), 'Potential conversion issue'
+    FROM temp_programs_plastics t
+    LEFT JOIN programs_plastics p ON t.program_code = p.program_code
+    WHERE ((t.maternal_leave_weeks IS NOT NULL AND TRIM(t.maternal_leave_weeks) != '') 
+           OR (t.maternal_leave_notes IS NOT NULL AND TRIM(t.maternal_leave_notes) REGEXP '^[0-9]'))
+    AND p.maternal_leave_weeks IS NULL
+    AND LOWER(TRIM(IFNULL(t.maternal_leave_weeks, ''))) NOT IN ('not found', 'n/a', 'none', 'unknown', 'unclear', 'no policy');
+    
+    -- Log paternal leave conversion issues
+    INSERT INTO transformation_log
+    SELECT t.program_code, 'paternal_leave_weeks', 
+           CONCAT('paternal_leave_weeks: ', IFNULL(t.paternal_leave_weeks, 'NULL'), ', paternal_leave_notes: ', IFNULL(t.paternal_leave_notes, 'NULL')), 
+           CAST(p.paternal_leave_weeks AS CHAR), 'Potential conversion issue'
+    FROM temp_programs_plastics t
+    LEFT JOIN programs_plastics p ON t.program_code = p.program_code
+    WHERE ((t.paternal_leave_weeks IS NOT NULL AND TRIM(t.paternal_leave_weeks) != '') 
+           OR (t.paternal_leave_notes IS NOT NULL AND TRIM(t.paternal_leave_notes) REGEXP '^[0-9]'))
+    AND p.paternal_leave_weeks IS NULL
+    AND LOWER(TRIM(IFNULL(t.paternal_leave_weeks, ''))) NOT IN ('not found', 'n/a', 'none', 'unknown', 'unclear', 'no policy');
+    
+    -- Log fertility benefits conversion issues
+    INSERT INTO transformation_log
+    SELECT t.program_code, 'has_fertility_benefits', t.has_fertility_benefits, 
+           CAST(p.has_fertility_benefits AS CHAR), 'Potential conversion issue'
+    FROM temp_programs_plastics t
+    LEFT JOIN programs_plastics p ON t.program_code = p.program_code
+    WHERE t.has_fertility_benefits IS NOT NULL 
+    AND TRIM(t.has_fertility_benefits) != ''
+    AND LOWER(TRIM(t.has_fertility_benefits)) != 'unclear'
+    AND p.has_fertility_benefits IS NULL;
+    
+    -- Log benefit amount conversion issues
+    INSERT INTO transformation_log
+    SELECT t.program_code, 'benefit_amount', 
+           CONCAT('benefit_amount: ', t.benefit_amount, ', benefits_offered: ', t.benefits_offered), 
+           CAST(p.benefit_amount AS CHAR), 'Potential benefit amount conversion issue'
+    FROM temp_programs_plastics t
+    LEFT JOIN programs_plastics p ON t.program_code = p.program_code
+    WHERE ((t.benefit_amount IS NOT NULL AND TRIM(t.benefit_amount) != '') 
+           OR (t.benefits_offered IS NOT NULL AND TRIM(t.benefits_offered) REGEXP '\\$|thousand|k'))
+    AND p.benefit_amount IS NULL;
+    
+    -- Log output
+    SELECT COUNT(*) AS issues_to_review FROM transformation_log;
+    
+    -- Display sample issues if any exist
+    SELECT * FROM transformation_log LIMIT 10;
+    
+    -- Summary
+    SELECT CONCAT('Migration completed. ', COUNT(*), ' records transferred.') AS migration_status 
+    FROM programs_plastics;
+    
+    -- Clean up
+    DROP TEMPORARY TABLE IF EXISTS transformation_log;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `migrate_to_institutions` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`fertilikey_user`@`localhost` PROCEDURE `migrate_to_institutions`()
+BEGIN
+    DECLARE obgyn_count INT;
+    DECLARE plastics_count INT;
+    DECLARE merged_count INT;
+    DECLARE duplicate_count INT;
+    
+    -- Increase GROUP_CONCAT max length to avoid truncation
+    SET SESSION group_concat_max_len = 1000000;
+    
+    -- Clear the destination table to avoid duplicates
+    TRUNCATE TABLE institutions;
+    
+    -- First, get sponsor information from temp_institutions table if it exists
+    -- This would contain the basic institution data like name, city, state, etc.
+    SET @sponsor_table_exists = (SELECT COUNT(*) 
+                                FROM information_schema.tables 
+                                WHERE table_schema = DATABASE() 
+                                AND table_name = 'temp_institutions');
+    
+    -- If temp_institutions table exists, use it for sponsor metadata
+    IF @sponsor_table_exists > 0 THEN
+        -- Insert basic institution information from temp_institutions
+        INSERT INTO institutions (
+            sponsor_code, name, city, state_name, postal_code, 
+            address_1, address_2, address_3, url
+        )
+        SELECT 
+            sponsor_code, name, city, state_name, postal_code,
+            address_1, address_2, address_3, url
+        FROM temp_institutions;
+    ELSE
+        -- Get a combined list of unique sponsor codes from both program tables
+        INSERT INTO institutions (sponsor_code, name)
+        SELECT DISTINCT sponsor_code, MAX(name) AS name
+        FROM (
+            SELECT sponsor_code, name FROM programs_obgyn WHERE sponsor_code IS NOT NULL
+            UNION ALL
+            SELECT sponsor_code, name FROM programs_plastics WHERE sponsor_code IS NOT NULL
+        ) AS combined_sponsors
+        GROUP BY sponsor_code;
+    END IF;
+    
+    -- Now merge the benefits data - update institutions that exist in programs_obgyn
+    UPDATE institutions i
+    JOIN (
+        SELECT 
+            sponsor_code,
+            AVG(maternal_leave_weeks) AS maternal_leave_weeks,
+            -- Properly handle empty strings and NULLs when concatenating
+            GROUP_CONCAT(DISTINCT CASE WHEN maternal_leave_notes IS NOT NULL AND TRIM(maternal_leave_notes) != '' 
+                                      THEN maternal_leave_notes ELSE NULL END SEPARATOR ' | ') AS maternal_leave_notes,
+            AVG(paternal_leave_weeks) AS paternal_leave_weeks,
+            GROUP_CONCAT(DISTINCT CASE WHEN paternal_leave_notes IS NOT NULL AND TRIM(paternal_leave_notes) != '' 
+                                      THEN paternal_leave_notes ELSE NULL END SEPARATOR ' | ') AS paternal_leave_notes,
+            MAX(has_fertility_benefits) AS has_fertility_benefits,
+            -- Fix data_source to avoid leading separators
+            GROUP_CONCAT(DISTINCT CASE WHEN data_source IS NOT NULL AND TRIM(data_source) != '' 
+                                      THEN data_source ELSE NULL END SEPARATOR ' | ') AS data_source,
+            -- Fix data_method to avoid leading separators
+            GROUP_CONCAT(DISTINCT CASE WHEN data_method IS NOT NULL AND TRIM(data_method) != '' 
+                                      THEN data_method ELSE NULL END SEPARATOR ' | ') AS data_method,
+            MAX(benefit_amount) AS benefit_amount,
+            -- Fix benefits_offered to avoid leading separators
+            GROUP_CONCAT(DISTINCT CASE WHEN benefits_offered IS NOT NULL AND TRIM(benefits_offered) != '' 
+                                      THEN benefits_offered ELSE NULL END SEPARATOR ' | ') AS benefits_offered,
+            -- Fix limits_for_coverage to avoid leading separators
+            GROUP_CONCAT(DISTINCT CASE WHEN limits_for_coverage IS NOT NULL AND TRIM(limits_for_coverage) != '' 
+                                      THEN limits_for_coverage ELSE NULL END SEPARATOR ' | ') AS limits_for_coverage,
+            -- Fix elective_treatment_covered to avoid leading separators
+            GROUP_CONCAT(DISTINCT CASE WHEN elective_treatment_covered IS NOT NULL AND TRIM(elective_treatment_covered) != '' 
+                                      THEN elective_treatment_covered ELSE NULL END SEPARATOR ' | ') AS elective_treatment_covered,
+            -- Fix other_details to avoid leading separators
+            GROUP_CONCAT(DISTINCT CASE WHEN other_details IS NOT NULL AND TRIM(other_details) != '' 
+                                      THEN other_details ELSE NULL END SEPARATOR ' | ') AS other_details
+        FROM programs_obgyn
+        WHERE sponsor_code IS NOT NULL
+        GROUP BY sponsor_code
+    ) AS o ON i.sponsor_code = o.sponsor_code
+    SET 
+        i.maternal_leave_weeks = o.maternal_leave_weeks,
+        i.maternal_leave_notes = o.maternal_leave_notes,
+        i.paternal_leave_weeks = o.paternal_leave_weeks,
+        i.paternal_leave_notes = o.paternal_leave_notes,
+        i.has_fertility_benefits = o.has_fertility_benefits,
+        i.data_source = o.data_source,
+        i.data_method = o.data_method,
+        i.benefit_amount = o.benefit_amount,
+        i.benefits_offered = o.benefits_offered,
+        i.limits_for_coverage = o.limits_for_coverage,
+        i.elective_treatment_covered = o.elective_treatment_covered,
+        i.other_details = o.other_details;
+    
+    -- Get count of OBGYN records updated
+    SELECT ROW_COUNT() INTO obgyn_count;
+    
+    -- Update institutions that exist in programs_plastics but not already updated from OBGYN
+    UPDATE institutions i
+    JOIN (
+        SELECT 
+            sponsor_code,
+            AVG(maternal_leave_weeks) AS maternal_leave_weeks,
+            -- Properly handle empty strings and NULLs when concatenating
+            GROUP_CONCAT(DISTINCT CASE WHEN maternal_leave_notes IS NOT NULL AND TRIM(maternal_leave_notes) != '' 
+                                      THEN maternal_leave_notes ELSE NULL END SEPARATOR ' | ') AS maternal_leave_notes,
+            AVG(paternal_leave_weeks) AS paternal_leave_weeks,
+            GROUP_CONCAT(DISTINCT CASE WHEN paternal_leave_notes IS NOT NULL AND TRIM(paternal_leave_notes) != '' 
+                                      THEN paternal_leave_notes ELSE NULL END SEPARATOR ' | ') AS paternal_leave_notes,
+            MAX(has_fertility_benefits) AS has_fertility_benefits,
+            -- Fix data_source to avoid leading separators
+            GROUP_CONCAT(DISTINCT CASE WHEN data_source IS NOT NULL AND TRIM(data_source) != '' 
+                                      THEN data_source ELSE NULL END SEPARATOR ' | ') AS data_source,
+            -- Fix data_method to avoid leading separators
+            GROUP_CONCAT(DISTINCT CASE WHEN data_method IS NOT NULL AND TRIM(data_method) != '' 
+                                      THEN data_method ELSE NULL END SEPARATOR ' | ') AS data_method,
+            MAX(benefit_amount) AS benefit_amount,
+            -- Fix benefits_offered to avoid leading separators
+            GROUP_CONCAT(DISTINCT CASE WHEN benefits_offered IS NOT NULL AND TRIM(benefits_offered) != '' 
+                                      THEN benefits_offered ELSE NULL END SEPARATOR ' | ') AS benefits_offered,
+            -- Fix limits_for_coverage to avoid leading separators
+            GROUP_CONCAT(DISTINCT CASE WHEN limits_for_coverage IS NOT NULL AND TRIM(limits_for_coverage) != '' 
+                                      THEN limits_for_coverage ELSE NULL END SEPARATOR ' | ') AS limits_for_coverage,
+            -- Fix elective_treatment_covered to avoid leading separators
+            GROUP_CONCAT(DISTINCT CASE WHEN elective_treatment_covered IS NOT NULL AND TRIM(elective_treatment_covered) != '' 
+                                      THEN elective_treatment_covered ELSE NULL END SEPARATOR ' | ') AS elective_treatment_covered,
+            -- Fix other_details to avoid leading separators
+            GROUP_CONCAT(DISTINCT CASE WHEN other_details IS NOT NULL AND TRIM(other_details) != '' 
+                                      THEN other_details ELSE NULL END SEPARATOR ' | ') AS other_details
+        FROM programs_plastics
+        WHERE sponsor_code IS NOT NULL
+        GROUP BY sponsor_code
+    ) AS p ON i.sponsor_code = p.sponsor_code
+    SET 
+        i.maternal_leave_weeks = COALESCE(i.maternal_leave_weeks, p.maternal_leave_weeks),
+        i.maternal_leave_notes = CASE 
+            WHEN i.maternal_leave_notes IS NULL THEN p.maternal_leave_notes
+            WHEN p.maternal_leave_notes IS NULL THEN i.maternal_leave_notes
+            ELSE CONCAT(i.maternal_leave_notes, ' | ', p.maternal_leave_notes)
+        END,
+        i.paternal_leave_weeks = COALESCE(i.paternal_leave_weeks, p.paternal_leave_weeks),
+        i.paternal_leave_notes = CASE 
+            WHEN i.paternal_leave_notes IS NULL THEN p.paternal_leave_notes
+            WHEN p.paternal_leave_notes IS NULL THEN i.paternal_leave_notes
+            ELSE CONCAT(i.paternal_leave_notes, ' | ', p.paternal_leave_notes)
+        END,
+        i.has_fertility_benefits = COALESCE(i.has_fertility_benefits, p.has_fertility_benefits),
+        i.data_source = CASE 
+            WHEN i.data_source IS NULL THEN p.data_source
+            WHEN p.data_source IS NULL THEN i.data_source
+            ELSE CONCAT(i.data_source, ' | ', p.data_source)
+        END,
+        i.data_method = CASE 
+            WHEN i.data_method IS NULL THEN p.data_method
+            WHEN p.data_method IS NULL THEN i.data_method
+            ELSE CONCAT(i.data_method, ' | ', p.data_method)
+        END,
+        i.benefit_amount = COALESCE(i.benefit_amount, p.benefit_amount),
+        i.benefits_offered = CASE 
+            WHEN i.benefits_offered IS NULL THEN p.benefits_offered
+            WHEN p.benefits_offered IS NULL THEN i.benefits_offered
+            ELSE CONCAT(i.benefits_offered, ' | ', p.benefits_offered)
+        END,
+        i.limits_for_coverage = CASE 
+            WHEN i.limits_for_coverage IS NULL THEN p.limits_for_coverage
+            WHEN p.limits_for_coverage IS NULL THEN i.limits_for_coverage
+            ELSE CONCAT(i.limits_for_coverage, ' | ', p.limits_for_coverage)
+        END,
+        i.elective_treatment_covered = CASE 
+            WHEN i.elective_treatment_covered IS NULL THEN p.elective_treatment_covered
+            WHEN p.elective_treatment_covered IS NULL THEN i.elective_treatment_covered
+            ELSE CONCAT(i.elective_treatment_covered, ' | ', p.elective_treatment_covered)
+        END,
+        i.other_details = CASE 
+            WHEN i.other_details IS NULL THEN p.other_details
+            WHEN p.other_details IS NULL THEN i.other_details
+            ELSE CONCAT(i.other_details, ' | ', p.other_details)
+        END;
+    
+    -- Get count of Plastics records updated
+    SELECT ROW_COUNT() INTO plastics_count;
+    
+    -- Calculate counts for reporting
+    SELECT COUNT(*) INTO merged_count FROM institutions 
+    WHERE maternal_leave_weeks IS NOT NULL 
+       OR paternal_leave_weeks IS NOT NULL 
+       OR has_fertility_benefits IS NOT NULL;
+    
+    -- Count institutions that have data from both sources (potential duplicates)
+    SELECT COUNT(*) INTO duplicate_count
+    FROM institutions i
+    WHERE EXISTS (
+        SELECT 1 FROM programs_obgyn o WHERE o.sponsor_code = i.sponsor_code
+    )
+    AND EXISTS (
+        SELECT 1 FROM programs_plastics p WHERE p.sponsor_code = i.sponsor_code
+    );
+    
+    -- Output summary
+    SELECT 
+        CONCAT('Migration completed. ', 
+               merged_count, ' institutions have benefits data.') AS result,
+        obgyn_count AS obgyn_updates,
+        plastics_count AS plastics_updates,
+        duplicate_count AS institutions_in_both_sources;
+    
+    -- Optional: Output a sample of merged records for verification
+    SELECT * FROM institutions WHERE maternal_leave_weeks IS NOT NULL OR has_fertility_benefits IS NOT NULL LIMIT 10;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2025-02-26  9:20:02
