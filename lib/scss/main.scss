@@ -1,26 +1,31 @@
-// Colors
+// Custom variables
+$gray-100: #f7fafc;
+$gray-200: #edf2f7;
+$gray-300: #e2e8f0;
+$gray-400: #cbd5e0;
+$gray-500: #a0aec0;
+$gray-600: #718096;
+$gray-700: #4a5568;
+$gray-800: #2d3748;
+$gray-900: #1a202c;
+$black: #000;
+$white: #fff;
 
-// Border radius
-// $border-radius: 10px;
-// $border-radius-sm: 6px;
+$green-500: #22c55e;
 
-// Fonts
-// $font-family-base: 'futura-pt', 'Nunito Sans', sans-serif;
-// $font-size-base: 1rem;
-// $font-color: $gray-900;
-// $font-weight-base: 300;
+$purple-800: #100943;
+$purple-400: #3C346D;
+$purple-300: #655CA4;
+$purple-400: #4A4190;
 
-// Headings
-// $h1-font-size: 2.75rem;
-// $h2-font-size: 1.4rem;
+$plum-100: #E5D6EC;
+$plum-200: #C0A2D0;
+$plum-300: #8D66A4;
+$plum-600: #512968;
+$plum-700: #351348;
+$plum-800: #2A093D;
 
-// $headings-font-weight: 700;
-// $headings-line-height: 1.1;
-// $headings-color: $blue;
-// $headings-margin-bottom: 0.5rem;
-
-// Card
-// $card-border-color: $gray-100;
+$blue-link: #3b82f6;
 
 // Custom breakpoints
 $grid-breakpoints: (
@@ -40,6 +45,41 @@ $container-max-widths: (
   xl: 900px,
   xxl: 1100px
 );
+
+// Border radius
+// $border-radius: 10px;
+// $border-radius-sm: 6px;
+
+// Fonts
+$font-dm-sans: 'DM Sans', sans-serif;
+$font-dm-serif: 'DM Serif Text', serif;
+
+$font-family-base: $font-dm-sans;
+// $font-size-base: 1rem;
+// $font-color: $gray-900;
+
+$font-weight-lighter: 100;
+$font-weight-light: 200;
+$font-weight-normal: $font-weight-light;
+$font-weight-base: $font-weight-light;
+$font-weight-bold: 700;
+
+// Headings
+$h1-font-size: 3rem;
+// $h2-font-size: 1.4rem;
+
+// $headings-font-weight: 700;
+// $headings-line-height: 1.1;
+// $headings-color: $blue;
+// $headings-margin-bottom: 0.5rem;
+
+// Card
+// $card-border-color: $gray-100;
+
+// Labels
+$form-label-margin-bottom: 0.25rem;
+$form-label-font-weight: $font-weight-bold;
+$form-label-font-size: 0.9rem;
 
 // Import Bootstrap Icons
 $bootstrap-icons-font-src: url("bootstrap-icons/font/fonts/bootstrap-icons.woff2") format("woff2"),
@@ -63,14 +103,131 @@ $bootstrap-icons-font-src: url("bootstrap-icons/font/fonts/bootstrap-icons.woff2
 @import "bootstrap/scss/helpers";
 @import "bootstrap/scss/utilities";
 @import "bootstrap/scss/utilities/api";
+@import "bootstrap/scss/forms";
 
-// Styling
+body {
+  background: linear-gradient(180deg, $plum-800 0%, $plum-600 100%);
+  font-family: $font-family-base;
+  font-weight: $font-weight-base;
+}
+
+main {
+  min-height: 100vh;
+  padding-top: 70px;
+  color: $white;
+}
+
+p,
+li {
+  font-family: $font-family-base;
+  font-weight: $font-weight-light;
+}
+
+hr {
+  color: $purple-400;
+}
+
+h1 {
+  font-family: $font-dm-serif;
+}
+
+.institution-search {
+  position: relative;
+
+  &::before {
+    display: inline-block;
+    position: absolute;
+    content: "";
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23000000' class='bi bi-search' viewBox='0 0 16 16'><path d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0'/></svg>");
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    left: 10px;
+    bottom: 8px;
+    width: 20px;
+    height: 20px;
+  }
+
+  input {
+    padding-left: 40px;
+    padding-right: 32px;
+
+    &::placeholder {
+      color: $gray-500;
+    }
+  }
+}
+
+.list-group {
+  background-color: $white;
+  padding-left: 0;
+  list-style: none;
+  border-radius: $border-radius;
+  overflow: hidden;
+}
+
+.list-group-item {
+  border: none;
+  border-bottom: 1px solid $gray-300;
+  border-radius: 0;
+  color: $black;
+  padding: 0.75rem;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .name {
+    font-weight: $font-weight-bold;
+    color: $gray-900;
+  }
+
+  .description {
+    font-size: 0.75rem;
+    color: $gray-700;
+  }
+}
+
+.button-clear {
+  position: absolute;
+  right: 4px;
+  bottom: 3px;
+  padding: 0.25rem 0.5rem;
+  border: 0;
+  background: unset;
+
+  &:hover,
+  &:focus,
+  &:active {
+    i {
+      color: $black;
+    }
+  }
+}
+
+header {
+  p {
+    padding: 0 15%;
+  }
+}
 
 footer {
     padding: 8px 0;
+    background-color: $plum-700;
 
     p,
     a {
-        font-size: 0.9rem;
+        font-weight: $font-weight-base;
+        color: $plum-200;
+        font-size: 0.7rem;
+        text-decoration: none;
+    }
+
+    a:hover,
+    a:focus {
+      text-decoration: underline;
+    }
+
+    p .vertical-divider {
+      color: $plum-300;
     }
 }
