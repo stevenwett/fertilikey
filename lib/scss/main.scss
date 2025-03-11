@@ -27,24 +27,12 @@ $plum-800: #2A093D;
 
 $blue-link: #3b82f6;
 
-// Custom breakpoints
-$grid-breakpoints: (
-  xs: 0,
-  sm: 501px,
-  md: 601px,
-  lg: 701px,
-  xl: 801px,
-  xxl: 1000px
-);
+// Colors
+$info: $plum-600;
 
-// Container max-widths
-$container-max-widths: (
-  sm: 600px,
-  md: 700px,
-  lg: 800px,
-  xl: 900px,
-  xxl: 1100px
-);
+$info-bg-subtle: $plum-600;
+$info-text-emphasis: $white;
+$info-border-subtle: $plum-700;
 
 // Border radius
 // $border-radius: 10px;
@@ -94,6 +82,25 @@ $bootstrap-icons-font-src: url("bootstrap-icons/font/fonts/bootstrap-icons.woff2
 @import "bootstrap/scss/mixins";
 @import "bootstrap/scss/root";
 
+// Custom breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 601px,
+  md: 701px,
+  lg: 801px,
+  xl: 901px,
+  xxl: 1000px
+);
+
+// Container max-widths
+$container-max-widths: (
+  sm: 600px,
+  md: 700px,
+  lg: 800px,
+  xl: 900px,
+  xxl: 1100px
+);
+
 // Only the Bootstrap components we need
 @import "bootstrap/scss/reboot";
 @import "bootstrap/scss/containers";
@@ -139,7 +146,7 @@ h1 {
     background-repeat: no-repeat;
     background-size: 20px 20px;
     left: 10px;
-    bottom: 8px;
+    bottom: 9px;
     width: 20px;
     height: 20px;
   }
@@ -207,7 +214,7 @@ header {
   }
 }
 
-footer {
+main + footer {
     padding: 8px 0;
     background-color: $plum-700;
 
