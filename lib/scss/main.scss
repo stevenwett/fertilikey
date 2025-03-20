@@ -26,6 +26,7 @@ $plum-700: #351348;
 $plum-800: #2A093D;
 
 $blue-link: #3b82f6;
+$primary: $plum-600;
 
 // Colors
 $info: $plum-600;
@@ -132,10 +133,18 @@ main {
   color: $white;
 }
 
+a {
+  color: $white;
+}
+
 p,
 li {
   font-family: $font-family-base;
   font-weight: $font-weight-light;
+}
+
+p ~ ul {
+  margin-top: -0.5rem;
 }
 
 h1 {
@@ -298,6 +307,16 @@ main + footer {
 
   h4 {
     font-weight: $font-weight-light;
+  }
+
+  a {
+    color: $primary;
+    transition: $transition-base;
+
+    &:hover,
+    &:focus {
+      color: $plum-800;
+    }
   }
 
   .institution-location {
