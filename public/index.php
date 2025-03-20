@@ -38,7 +38,7 @@ $dotenv->load();
 
 <body>
     <main>
-        <div class="container pb-5">
+        <div class="container pb-4">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-10 col-lg-8 col-xl-7">
                     <header class="text-center mb-4">
@@ -51,7 +51,6 @@ $dotenv->load();
             </div>
         </div>
     </main>
-
     <footer>
         <div class="container">
             <div class="row align-items-center text-center">

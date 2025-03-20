@@ -21,9 +21,12 @@ $purple-400: #4A4190;
 $plum-100: #E5D6EC;
 $plum-200: #C0A2D0;
 $plum-300: #8D66A4;
+$plum-400: #8D66A4;
+$plum-500: #8D66A4;
 $plum-600: #512968;
 $plum-700: #351348;
 $plum-800: #2A093D;
+$plum-900: #2A093D;
 
 $blue-link: #3b82f6;
 $primary: $plum-600;
@@ -167,14 +170,29 @@ h1 {
     bottom: 13px;
     width: 20px;
     height: 20px;
+    opacity: 0.75;
+    transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  &:hover::before,
+  &:focus-within::before {
+    opacity: 1;
   }
 
   input {
     padding-left: 45px;
     padding-right: 32px;
+    transition: border-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     &::placeholder {
       color: $gray-500;
+      transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    &:focus::placeholder {
+      color: $gray-400;
     }
 
     &[aria-expanded=true] {
@@ -205,31 +223,49 @@ h1 {
   cursor: pointer;
   outline: none;
   font-size: 0.9rem;
+  transition: background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
   &:last-child {
     border-bottom: none;
   }
   
+  &:hover {
+    background-color: rgba($plum-100, 0.15);
+  }
+  
   &:focus {
-    background-color: $gray-200;
-    box-shadow: inset 0 0 0 2px $plum-300;
+    background-color: rgba($plum-100, 0.2);
+    box-shadow: inset 0 0 0 1px $plum-300;
   }
 
   &.active,
   &:active,
   &:focus {
-    background-color: $gray-200;
+    background-color: rgba($plum-100, 0.25);
     border: 0;
   }
 
   .name {
     font-weight: $font-weight-semibold;
     color: $gray-900;
+    transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   .description {
     font-size: 0.75rem;
     color: $gray-700;
+    transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  &:hover {
+    .name {
+      color: $plum-600;
+    }
+    
+    .description {
+      color: $plum-400;
+    }
   }
 }
 
@@ -240,10 +276,18 @@ h1 {
   padding: 0.25rem 0.5rem;
   border: 0;
   background: unset;
+  transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 0.7;
+
+  i {
+    transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
 
   &:hover,
   &:focus,
   &:active {
+    opacity: 1;
+    
     i {
       color: $black;
     }
@@ -288,8 +332,23 @@ main + footer {
     }
 }
 
+// Subtle animations
+@keyframes subtleGlow {
+  0% {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba($plum-300, 0.03);
+  }
+  50% {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba($plum-300, 0.09);
+  }
+  100% {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba($plum-300, 0.03);
+  }
+}
+
 .card {
   color: $body-color;
+  animation: subtleGlow 6s infinite ease-in-out;
+  transition: box-shadow 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
   h2 {
     font-size: 1.25rem;
@@ -311,7 +370,7 @@ main + footer {
 
   a {
     color: $primary;
-    transition: $transition-base;
+    transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     &:hover,
     &:focus {
@@ -324,6 +383,9 @@ main + footer {
   }
 
   .btn-outline-secondary {
+    transition: background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    
     &:hover,
     &:focus {
       background-color: $gray-100;
