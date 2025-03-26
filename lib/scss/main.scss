@@ -132,7 +132,7 @@ body {
 
 main {
   min-height: 100vh;
-  padding-top: 70px;
+  padding-top: 40px;
   color: $white;
 }
 
@@ -154,6 +154,10 @@ h1 {
   font-family: $font-dm-serif;
   line-height: 1.1;
   margin-bottom: 1rem;
+}
+
+.small {
+  font-size: 0.8rem;
 }
 
 .institution-search {
@@ -365,7 +369,9 @@ main + footer {
   }
 
   h4 {
-    font-weight: $font-weight-light;
+    font-weight: 500;
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
   }
 
   a {
