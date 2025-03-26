@@ -42,7 +42,7 @@ $dotenv->load();
             <div class="row justify-content-center">
                 <div class="col-12 col-md-10 col-lg-8 col-xl-7">
                     <header class="text-center mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="125" style="margin-left: -75px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="125" style="margin-left: -50px;">
                         <!-- Egg -->
                         <circle cx="280" cy="150" r="70" fill="none" stroke="white" stroke-width="4" />
                         
