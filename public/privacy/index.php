@@ -9,15 +9,41 @@ $dotenv->load();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <title>Fertilikey</title>
+    <meta name="description" content="Learn about parental leave and fertility benefits across teaching institutions in the US.">
+    <title>Find the fertility benefits at ACGME institutions</title>
 
     <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@00;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
 
     <!-- styles -->
     <link rel="stylesheet" href="/css/main.css">
 
     <!-- favicons -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Fertilikey" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Find the fertility benefits at ACGME institutions" />
+    <meta property="og:description" content="Learn about parental leave and fertility benefits across teaching institutions in the US." />
+    <meta property="og:image" content="https://fertilikey.org/assets/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://fertilikey.org" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Fertilikey" />
+
+    <!-- Twitter Card tags (for Twitter sharing) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://fertilikey.org/assets/og-image.jpg" />
+    <meta name="twitter:title" content="Find the fertility benefits at ACGME institutions" />
+    <meta name="twitter:description" content="Learn about parental leave and fertility benefits across teaching institutions in the US." />
 </head>
 
 <?php if (isset($_ENV['APP_ENV']) && 'production' === $_ENV['APP_ENV']): ?>
