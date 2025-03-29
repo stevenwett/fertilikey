@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Block common bot patterns
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# Crawl delay to prevent server overload
+Crawl-delay: 10
+
+# Last updated: March 28, 2025
