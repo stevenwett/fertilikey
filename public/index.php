@@ -22,6 +22,12 @@ $dotenv->load();
     <link rel="stylesheet" href="/css/main.css">
 
     <!-- favicons -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Fertilikey" />
+    <link rel="manifest" href="/site.webmanifest" />
 </head>
 
 <?php if (isset($_ENV['APP_ENV']) && 'production' === $_ENV['APP_ENV']): ?>
@@ -43,29 +49,29 @@ $dotenv->load();
                 <div class="col-12 col-md-10 col-lg-8 col-xl-7">
                     <header class="text-center mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="125" style="margin-left: -50px;">
-                        <!-- Egg -->
-                        <circle cx="280" cy="150" r="70" fill="none" stroke="white" stroke-width="4" />
-                        
-                        <!-- Corona radiata (outer layer of egg) -->
-                        <circle cx="280" cy="150" r="80" fill="none" stroke="white" stroke-width="1.5" stroke-dasharray="5,5" />
-                        
-                        <!-- Zona pellucida (inner membrane) -->
-                        <circle cx="280" cy="150" r="60" fill="none" stroke="white" stroke-width="1.5" />
-                        
-                        <!-- Sperm -->
-                        <g>
-                            <!-- Sperm head -->
-                            <ellipse cx="200" cy="150" rx="20" ry="14" fill="white" />
+                            <!-- Egg -->
+                            <circle cx="280" cy="150" r="70" fill="none" stroke="white" stroke-width="4" />
                             
-                            <!-- Sperm tail/flagellum -->
-                            <path d="M 180,150 Q 165,140 150,150 Q 135,160 120,150 Q 105,140 90,150" fill="none" stroke="white" stroke-width="4">
-                            <animate attributeName="d" 
-                                values="M 180,150 Q 165,140 150,150 Q 135,160 120,150 Q 105,140 90,150;
-                                        M 180,150 Q 165,160 150,150 Q 135,140 120,150 Q 105,160 90,150;
-                                        M 180,150 Q 165,140 150,150 Q 135,160 120,150 Q 105,140 90,150" 
-                                dur="0.8s" repeatCount="indefinite" />
-                            </path>
-                        </g>
+                            <!-- Corona radiata (outer layer of egg) -->
+                            <circle cx="280" cy="150" r="80" fill="none" stroke="white" stroke-width="1.5" stroke-dasharray="5,5" />
+                            
+                            <!-- Zona pellucida (inner membrane) -->
+                            <circle cx="280" cy="150" r="60" fill="none" stroke="white" stroke-width="1.5" />
+                            
+                            <!-- Sperm -->
+                            <g>
+                                <!-- Sperm head -->
+                                <ellipse cx="200" cy="150" rx="20" ry="14" fill="white" />
+                                
+                                <!-- Sperm tail/flagellum -->
+                                <path d="M 180,150 Q 165,140 150,150 Q 135,160 120,150 Q 105,140 90,150" fill="none" stroke="white" stroke-width="4">
+                                <animate attributeName="d" 
+                                    values="M 180,150 Q 165,140 150,150 Q 135,160 120,150 Q 105,140 90,150;
+                                            M 180,150 Q 165,160 150,150 Q 135,140 120,150 Q 105,160 90,150;
+                                            M 180,150 Q 165,140 150,150 Q 135,160 120,150 Q 105,140 90,150" 
+                                    dur="0.8s" repeatCount="indefinite" />
+                                </path>
+                            </g>
                         </svg>
                         <h1>Find the fertility benefits at ACGME institutions</h1>
                         <p>Learn about parental leave and fertility benefits across teaching institutions in the US.</p>

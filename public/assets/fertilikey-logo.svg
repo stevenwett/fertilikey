@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 271.86 161.5">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-dasharray: 0 0 5 5;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+        stroke: #fff;
+      }
+
+      .cls-1, .cls-3 {
+        stroke-width: 1.5px;
+      }
+
+      .cls-2 {
+        stroke-width: 4px;
+      }
+
+      .cls-4 {
+        fill: #fff;
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <circle class="cls-2" cx="191.11" cy="80.75" r="70"/>
+  <circle class="cls-1" cx="191.11" cy="80.75" r="80"/>
+  <circle class="cls-3" cx="191.11" cy="80.75" r="60"/>
+  <g>
+    <ellipse class="cls-4" cx="111.11" cy="80.75" rx="20" ry="14"/>
+    <path class="cls-2" d="m91.11,80.75c-10-6.67-20-6.67-30,0s-20,6.67-30,0-20-6.67-30,0"/>
+  </g>
+</svg>
