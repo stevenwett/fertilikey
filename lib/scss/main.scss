@@ -123,6 +123,7 @@ $container-max-widths: (
 @import "bootstrap/scss/forms";
 @import "bootstrap/scss/alert";
 @import "bootstrap/scss/modal";
+@import "bootstrap/scss/tooltip";
 
 body {
   background: linear-gradient(180deg, $plum-800 0%, $plum-600 100%);
@@ -138,6 +139,12 @@ main {
 
 a {
   color: $white;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
 }
 
 p,
