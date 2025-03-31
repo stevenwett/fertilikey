@@ -61,27 +61,31 @@ $dotenv->load();
 <body>
     <main>
         <div class="container pb-5">
-            <a href="/">&lsaquo; Back to Search</a>
-            <h1 class="mt-3">About This Project</h1>
-            <p>This ongoing research project is dedicated to consolidating information about parental leave policies and fertility benefits at ACGME-accredited institutions. Our mission is to empower applicants and current trainees by providing comprehensive and easily accessible information, helping them make informed decisions about their training and personal needs.</p>
-            <p>We collect data through direct outreach to institutions and from publicly available resources.</p>
-            <hr />
-            <p>A special thank you to the following volunteers who contributed to this project:</p>
-            <ul>
-                <li>Anisha Chada, MD – Project Lead</li>
-                <li>Melika Deaton, MD – Researcher</li>
-                <li>Chloe Denham, MD – Researcher</li>
-                <li>Shannon Su, MD Candidate – Data Analyst</li>
-                <li>Aashvi Patel, MD Candidate – Researcher</li>
-                <li>Sheila Rajagopalan, MD Candidate – Researcher</li>
-                <li>Gabriela Garcia Nores, MD – Principal Investigator</li>
-                <li>Jennifer Kawwass, MD – Principal Investigator</li>
-                <li>Steven Wett – Website Design and Development</li>
-            </ul>
-            <!-- <h2>Contribute to the Project</h2>
-            <p>If you're interested in adding your institution's information to this project, please fill out this form. We encourage residents, fellows, and program leadership to contribute data, helping us create a comprehensive and accurate resource for future trainees.</p> -->
-            <h2>Looking Forward</h2>
-            <p>We hope to continue expanding this resource to include additional institutions and advocate for improved fertility-related policies across the country.</p>
+            <div class="row">
+                <div class="col-12 col-md-11 col-lg-8">
+                    <a href="/">&lsaquo; Back to Search</a>
+                    <h1 class="mt-3">About This Project</h1>
+                    <p>This ongoing research project is dedicated to consolidating information about parental leave policies and fertility benefits at ACGME-accredited institutions. Our mission is to empower applicants and current trainees by providing comprehensive and easily accessible information, helping them make informed decisions about their training and personal needs.</p>
+                    <p>We collect data through direct outreach to institutions and from publicly available resources.</p>
+                    <hr />
+                    <p>A special thank you to the following volunteers who contributed to this project:</p>
+                    <ul>
+                        <li>Anisha Chada, MD – Project Lead</li>
+                        <li>Melika Deaton, MD – Researcher</li>
+                        <li>Chloe Denham, MD – Researcher</li>
+                        <li>Shannon Su, MD Candidate – Data Analyst</li>
+                        <li>Aashvi Patel, MD Candidate – Researcher</li>
+                        <li>Sheila Rajagopalan, MD Candidate – Researcher</li>
+                        <li>Gabriela Garcia Nores, MD – Principal Investigator</li>
+                        <li>Jennifer Kawwass, MD – Principal Investigator</li>
+                        <li>Steven Wett – Website Design and Development</li>
+                    </ul>
+                    <!-- <h2>Contribute to the Project</h2>
+                    <p>If you're interested in adding your institution's information to this project, please fill out this form. We encourage residents, fellows, and program leadership to contribute data, helping us create a comprehensive and accurate resource for future trainees.</p> -->
+                    <h2>Looking Forward</h2>
+                    <p>We hope to continue expanding this resource to include additional institutions and advocate for improved fertility-related policies across the country.</p>
+                </div>
+            </div>
         </div>
     </main>
 
