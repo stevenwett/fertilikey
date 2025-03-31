@@ -61,8 +61,8 @@ $dotenv->load();
 <body>
     <main>
         <div class="container pb-5">
-            <a href="/">&lsaquo; Back to Home</a>
-            <h1>Privacy Policy</h1>
+            <a href="/">&lsaquo; Back to Search</a>
+            <h1 class="mt-3">Privacy Policy</h1>
             <h2>Overview</h2>
             <p>FertiliKey ("we," "us," or "our") operates the website https://fertilikey.org (the "Site"), which provides information about parental leave and fertility benefits across teaching institutions in the United States. This Privacy Policy explains how we collect, use, and share information about visitors to our Site.</p>
             <h2>Information We Collect</h2>
@@ -143,7 +143,7 @@ $dotenv->load();
         <div class="container">
             <div class="row align-items-center text-center">
                 <div class="col-12">
-                    <p class="mb-0">&copy; <?= date('Y'); ?> Fertilikey <span class="vertical-divider">&nbsp;&nbsp;|&nbsp;&nbsp;</span> <a href="/privacy">Privacy Policy</a></p>
+                <p class="mb-0">&copy; <?= date('Y'); ?> Fertilikey <span class="vertical-divider">&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/about">About This Project</a>&nbsp;&nbsp;|&nbsp;&nbsp;</span> <a href="/privacy">Privacy Policy</a></p>
                 </div>
             </div>
         </div>
