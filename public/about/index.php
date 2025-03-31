@@ -64,7 +64,7 @@ $dotenv->load();
             <a href="/">&lsaquo; Back to Search</a>
             <h1 class="mt-3">About This Project</h1>
             <p>This ongoing research project is dedicated to consolidating information about parental leave policies and fertility benefits at ACGME-accredited institutions. Our mission is to empower applicants and current trainees by providing comprehensive and easily accessible information, helping them make informed decisions about their training and personal needs.</p>
-            <p>We collect data through direct outreach to institutions and from publicly available resources, ensuring accuracy and transparency.</p>
+            <p>We collect data through direct outreach to institutions and from publicly available resources.</p>
             <hr />
             <p>A special thank you to the following volunteers who contributed to this project:</p>
             <ul>
