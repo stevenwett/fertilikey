@@ -1,5 +1,6 @@
 RewriteEngine On
 
-RewriteCond %{HTTPS} !=on [OR]
+# Redirect if not HTTPS or if the host starts with "www."
+RewriteCond %{HTTP:X-Forwarded-Proto} !https [OR]
 RewriteCond %{HTTP_HOST} ^www\. [NC]
 RewriteRule ^ https://fertilikey.org%{REQUEST_URI} [L,R=301]
