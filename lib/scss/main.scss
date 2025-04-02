@@ -157,6 +157,11 @@ li {
   font-weight: $font-weight-light;
 }
 
+li {
+  line-height: 1.25;
+  margin-bottom: 0.3rem;
+}
+
 p ~ ul {
   margin-top: -0.5rem;
 }

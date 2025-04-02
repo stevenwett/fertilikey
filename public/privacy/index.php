@@ -19,7 +19,7 @@ $dotenv->load();
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
 
     <!-- styles -->
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/main.css?v2">
 
     <!-- favicons -->
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
