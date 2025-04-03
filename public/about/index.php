@@ -71,17 +71,18 @@ $dotenv->load();
                     <p>A special thank you to the following volunteers who contributed to this project:</p>
                     <ul>
                         <li>Anisha Chada, MD – Project Lead</li>
-                        <li>Melika Deaton, MD – Researcher</li>
-                        <li>Chloe Denham, MD – Researcher</li>
-                        <li>Shannon Su, MD Candidate – Data Analyst</li>
-                        <li>Aashvi Patel, MD Candidate – Researcher</li>
-                        <li>Sheila Rajagopalan, MD Candidate – Researcher</li>
                         <li>Gabriela Garcia Nores, MD – Principal Investigator</li>
                         <li>Jennifer Kawwass, MD – Principal Investigator</li>
+                        <li>Aashvi Patel, MD Candidate – Researcher</li>
+                        <li>Chloe Denham, MD – Researcher</li>
+                        <li>Heather Hipp, MD – Researcher</li>
+                        <li>Melika Deaton, MD – Researcher</li>
+                        <li>Shannon Su, MD Candidate – Data Analyst</li>
+                        <li>Sheila Rajagopalan, MD Candidate – Researcher</li>
                         <li>Steven Wett – Website Design and Development</li>
                     </ul>
-                    <!-- <h2>Contribute to the Project</h2>
-                    <p>If you're interested in adding your institution's information to this project, please fill out this form. We encourage residents, fellows, and program leadership to contribute data, helping us create a comprehensive and accurate resource for future trainees.</p> -->
+                    <h2>Contribute to the Project</h2>
+                    <p>If you're interested in adding your institution's information to this project or correcting any information, please <a class="text-decoration-underline"href="https://forms.gle/16Ku5nnyKAhPRx449">fill out this form</a>. We encourage residents, fellows, and program leadership to contribute data, to help us create a comprehensive and accurate resource for future trainees.</p>
                     <h2>Looking Forward</h2>
                     <p>We hope to continue expanding this resource to include additional institutions and advocate for improved fertility-related policies across the country.</p>
                 </div>
