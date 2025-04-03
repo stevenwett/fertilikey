@@ -71,14 +71,14 @@ $dotenv->load();
                     <p>A special thank you to the following volunteers who contributed to this project:</p>
                     <ul>
                         <li>Anisha Chada, MD – Project Lead</li>
-                        <li>Gabriela Garcia Nores, MD – Principal Investigator</li>
-                        <li>Jennifer Kawwass, MD – Principal Investigator</li>
+                        <li>Melika Deaton, MD – Researcher</li>
                         <li>Aashvi Patel, MD Candidate – Researcher</li>
                         <li>Chloe Denham, MD – Researcher</li>
-                        <li>Heather Hipp, MD – Researcher</li>
-                        <li>Melika Deaton, MD – Researcher</li>
-                        <li>Shannon Su, MD Candidate – Data Analyst</li>
                         <li>Sheila Rajagopalan, MD Candidate – Researcher</li>
+                        <li>Shannon Su, MD Candidate – Data Analyst</li>
+                        <li>Heather Hipp, MD – Researcher</li>
+                        <li>Gabriela Garcia Nores, MD – Principal Investigator</li>
+                        <li>Jennifer Kawwass, MD – Principal Investigator</li>
                         <li>Steven Wett – Website Design and Development</li>
                     </ul>
                     <h2>Contribute to the Project</h2>
