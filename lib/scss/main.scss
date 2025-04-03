@@ -373,7 +373,7 @@ main + footer {
   h2 {
     font-size: 1.25rem;
     font-weight: $font-weight-bold;
-    margin-bottom: 0;
+    margin-bottom: 0.25rem;
     color: $body-color;
   }
 
@@ -398,10 +398,6 @@ main + footer {
     &:focus {
       color: $plum-800;
     }
-  }
-
-  .institution-location {
-    font-size: 0.85rem;
   }
 
   .btn-outline-secondary {
