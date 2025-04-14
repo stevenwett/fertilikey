@@ -1,4 +1,8 @@
 <?php
+// Add error logging
+ini_set('log_errors', 1);
+error_log("Search Log API called: " . date('Y-m-d H:i:s'));
+
 // Enable CORS
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST");
@@ -74,10 +78,18 @@ try {
     $message = 'Search logged successfully';
     $status = 201; // Created
 } catch(PDOException $e) {
+    error_log("CRITICAL ERROR in search-log API: " . $e->getMessage());
+    error_log("Error file: " . $e->getFile() . " line: " . $e->getLine());
+    error_log("Stack trace: " . $e->getTraceAsString());
+
     // Set error response for database issues
     $message = 'Database error: ' . $e->getMessage();
     $status = 500;
 } catch(Exception $e) {
+    error_log("CRITICAL ERROR in search-log API: " . $e->getMessage());
+    error_log("Error file: " . $e->getFile() . " line: " . $e->getLine());
+    error_log("Stack trace: " . $e->getTraceAsString());
+
     // Handle other exceptions
     $message = 'Error: ' . $e->getMessage();    
 }
