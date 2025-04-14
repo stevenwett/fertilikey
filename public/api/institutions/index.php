@@ -56,4 +56,3 @@ try {
 
 // Return JSON response
 echo json_encode($response);
-?>
