@@ -100,8 +100,8 @@ $dotenv->load();
         </div>
 
         <!-- scripts -->
-        <script src="/js/main.js"></script>
-        <script src="/js/app.js"></script>
+        <script src="/js/main.js?v1"></script>
+        <script src="/js/app.js?v1"></script>
     </footer>
 </body>
 </html>
