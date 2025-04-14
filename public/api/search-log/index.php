@@ -58,7 +58,7 @@ try {
 
     $sponsor_code = $data['sponsor_code'] ?? null;
     $institution_name = $data['institution_name'];
-    $is_debug = (isset($_ENV['APP_ENV']) && 'production' === $_ENV['APP_ENV']) ? false : true;
+    $is_debug = isset($_ENV['APP_ENV']) && 'production' === $_ENV['APP_ENV'] ? 0 : 1;
 
     // Database configuration
     $db_host = $_ENV['DB_HOST'] ?? 'localhost';
