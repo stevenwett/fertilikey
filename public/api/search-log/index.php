@@ -3,6 +3,10 @@
 ini_set('log_errors', 1);
 error_log("Search Log API called: " . date('Y-m-d H:i:s'));
 
+// Log all headers for debugging
+$all_headers = getallheaders();
+error_log("DEBUG - Cloudflare Headers: " . json_encode($all_headers));
+
 // Enable CORS
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST");
@@ -45,9 +49,22 @@ if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
     $ip_address = trim($ip_parts[0]);
 }
 
+// Get region/state data from Cloudflare
+$region_code = null;
+if (isset($_SERVER['HTTP_CF_IPCOUNTRY'])) {
+    // Country is available
+    $country_code = $_SERVER['HTTP_CF_IPCOUNTRY'];
+    
+    // Check for region/state data
+    if (isset($_SERVER['HTTP_CF_IPREGION'])) {
+        $region_code = $_SERVER['HTTP_CF_IPREGION'];
+    }
+}
+
 // Handle local development IP addresses
 if ($ip_address === '::1' || $ip_address === '127.0.0.1') {
     $ip_address = 'localhost';
+    $region_code = $region_code ?? '';
 }
 
 try {
@@ -71,8 +88,8 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
     // Insert search log
-    $stmt = $conn->prepare("INSERT INTO searchLog (sponsor_code, institution_name, ip_address, is_debug) VALUES (?, ?, ?, ?)");
-    $stmt->execute([$sponsor_code, $institution_name, $ip_address, $is_debug]);
+    $stmt = $conn->prepare("INSERT INTO searchLog (sponsor_code, institution_name, ip_address, is_debug, region_code) VALUES (?, ?, ?, ?, ?)");
+    $stmt->execute([$sponsor_code, $institution_name, $ip_address, $is_debug, $region_code]);
     
     // Set success response
     $message = 'Search logged successfully';
