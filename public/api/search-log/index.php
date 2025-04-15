@@ -49,22 +49,24 @@ if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
     $ip_address = trim($ip_parts[0]);
 }
 
-// Get region/state data from Cloudflare
-$region_code = null;
+// Get country data from Cloudflare
+$country_code = null;
+
+// Check for Cloudflare country header
 if (isset($_SERVER['HTTP_CF_IPCOUNTRY'])) {
-    // Country is available
     $country_code = $_SERVER['HTTP_CF_IPCOUNTRY'];
-    
-    // Check for region/state data
-    if (isset($_SERVER['HTTP_CF_IPREGION'])) {
-        $region_code = $_SERVER['HTTP_CF_IPREGION'];
+} else {
+    // Check in all headers 
+    $all_headers = getallheaders();
+    if (isset($all_headers['cf-ipcountry'])) {
+        $country_code = $all_headers['cf-ipcountry'];
     }
 }
 
 // Handle local development IP addresses
 if ($ip_address === '::1' || $ip_address === '127.0.0.1') {
     $ip_address = 'localhost';
-    $region_code = $region_code ?? '';
+    $country_code = $country_code ?? '';
 }
 
 try {
@@ -88,9 +90,9 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
     // Insert search log
-    $stmt = $conn->prepare("INSERT INTO searchLog (sponsor_code, institution_name, ip_address, is_debug, region_code) VALUES (?, ?, ?, ?, ?)");
-    $stmt->execute([$sponsor_code, $institution_name, $ip_address, $is_debug, $region_code]);
-    
+    $stmt = $conn->prepare("INSERT INTO searchLog (sponsor_code, institution_name, ip_address, is_debug, country_code) VALUES (?, ?, ?, ?, ?)");
+    $stmt->execute([$sponsor_code, $institution_name, $ip_address, $is_debug, $country_code]);
+
     // Set success response
     $message = 'Search logged successfully';
     $status = 201; // Created
