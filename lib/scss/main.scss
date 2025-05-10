@@ -378,8 +378,9 @@ main + footer {
   }
 
   h3 {
+    text-transform: uppercase;
     font-weight: $font-weight-bold;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     margin-bottom: 0.25rem;
     color: $body-color;
   }
@@ -416,10 +417,6 @@ main + footer {
 
   ul {
     padding-left: 1.5rem;
-  }
-
-  .leave-info {
-    margin-top: 0.5rem;
   }
   
   .leave-weeks {
