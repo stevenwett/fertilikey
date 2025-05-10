@@ -36,6 +36,19 @@ try {
     
     // Fetch all institutions
     $institutions = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Clean up any values that are just dashes or en dashes
+    $institutions = array_map(function ($institution) {
+        foreach ($institution as $key => $value) {
+            if (is_string($value)) {
+                $trimmed = trim($value);
+                if ($trimmed === '-' || $trimmed === '–') {
+                    $institution[$key] = '';
+                }
+            }
+        }
+        return $institution;
+    }, $institutions);
     
     // Set success response
     $response['message'] = 'Institutions retrieved successfully';
