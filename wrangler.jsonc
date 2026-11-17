@@ -1,0 +1,36 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "fertilikey",
+  "main": "src/index.js",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    // The Worker sees every request so it can redirect www/http to the apex
+    // before an asset is served.
+    "run_worker_first": true,
+    "html_handling": "auto-trailing-slash"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "fertilikey",
+      // Paste the id printed by `npx wrangler d1 create fertilikey`.
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "vars": {
+    "APP_ENV": "production"
+  },
+  "observability": {
+    "enabled": true
+  }
+  // Cutover: uncomment, then deploy. Cloudflare refuses a custom domain while
+  // a DNS record for that hostname still points at the VPS, so delete the
+  // fertilikey.org and www A/CNAME records first.
+  // ,"routes": [
+  //   { "pattern": "fertilikey.org", "custom_domain": true },
+  //   { "pattern": "www.fertilikey.org", "custom_domain": true }
+  // ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "fertilikey-worker",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "npm --prefix lib run build",
+    "dev": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy",
+    "db:convert": "node scripts/mysql-to-d1.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^4.163.0"
+  }
+}

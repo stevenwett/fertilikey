@@ -1,14 +1,17 @@
 # FertiliKey Project Guidelines
 
 ## Build Commands
-- **Development**: `cd lib && npm run dev`
-- **Production Build**: `cd lib && npm run build`
-- **PHP Server**: `php -S localhost:8000 -t public`
+- **Frontend watch**: `cd lib && npm run dev`
+- **Production Build**: `npm run build` (webpack into `public/js` and `public/css`)
+- **Local Worker**: `npm run dev` (build, then `wrangler dev` with a local D1)
+- **Deploy**: `npm run deploy`
+- **MySQL dump to D1**: `npm run db:convert -- <dump.sql> --schema-out <file> --data-out <file>` (see `MIGRATION.md`)
 
 ## Project Structure
 - **Frontend**: React components in `lib/js/components/`
 - **Styling**: SCSS in `lib/scss/`
-- **Backend**: PHP API endpoints in `public/api/`
+- **Backend**: Cloudflare Worker in `src/index.js` serving `public/` as static assets and `/api/*` from D1 (binding `DB`)
+- **Database**: D1 (SQLite) schema in `migrations/`
 
 ## Code Style
 
@@ -24,10 +27,9 @@
 - Maintain custom variables in `lib/scss/main.scss`
 - Mobile-first responsive design
 
-### PHP
-- Follow PSR-4 standards for PHP code
-- Use appropriate error handling and logging
-- Secure API endpoints properly
+### Worker
+- Bind every SQL value with `.bind()`; never build SQL from request data
+- Log error details with `console.error`; return generic messages to the client
 
 ## Import Conventions
 - Group imports by type (React, external libraries, local components)
