@@ -1,6 +1,7 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "fertilikey",
+	"account_id": "9e5155da71d54e636b45f473da9140e5",
 	"main": "src/index.js",
 	"compatibility_date": "2026-11-01",
 	"assets": {
