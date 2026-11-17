@@ -60,7 +60,7 @@ The Worker comes up on its `*.workers.dev` URL with no change to fertilikey.org.
    ```
 
 2. In the Cloudflare dashboard, delete the `fertilikey.org` and `www` DNS records that point at the VPS. Cloudflare will not attach a Worker custom domain while those records exist.
-3. Uncomment the `routes` block in `wrangler.jsonc` and run `npm run deploy`. Cloudflare creates the DNS records and certificates for both hostnames. The Worker redirects `www` and plain http to `https://fertilikey.org`, as `.htaccess` did.
+3. Run `npm run deploy` with the `routes` block in `wrangler.jsonc`. The cutover was done on 2026-11-17. Since then `routes` is always on and the `workers.dev` address is off. Cloudflare creates the DNS records and certificates for both hostnames. The Worker redirects `www` and plain http to `https://fertilikey.org`, as `.htaccess` did.
 
 Rollback: comment the routes out, deploy, and restore the old DNS records. The VPS is untouched until you shut it down.
 

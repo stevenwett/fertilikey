@@ -24,12 +24,11 @@
 	},
 	"observability": {
 		"enabled": true
-	}
-	// Cutover: uncomment, then deploy. Cloudflare refuses a custom domain while
-	// a DNS record for that hostname still points at the VPS, so delete the
-	// fertilikey.org and www A/CNAME records first.
-	// ,"routes": [
-	//   { "pattern": "fertilikey.org", "custom_domain": true },
-	//   { "pattern": "www.fertilikey.org", "custom_domain": true }
-	// ]
+	},
+	// Cloudflare refuses a custom domain while a DNS record for that hostname
+	// already exists, so the old VPS A/CNAME records had to be deleted first.
+	"routes": [
+		{ "pattern": "fertilikey.org", "custom_domain": true },
+		{ "pattern": "www.fertilikey.org", "custom_domain": true }
+	]
 }
