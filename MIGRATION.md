@@ -34,7 +34,10 @@ Paste the printed `database_id` into `wrangler.jsonc`.
    ```bash
    npx wrangler d1 migrations apply fertilikey --remote
    npx wrangler d1 execute fertilikey --remote --file backup/fertilikey-prod.data.sql
+   npx wrangler d1 execute fertilikey --remote --file scripts/searchlog-eastern-to-utc.sql
    ```
+
+   The last command moves the old `searchLog.date_created` values from the VPS's Eastern time to UTC, which is what D1 writes. Run it once per load.
 
    Use `--local` instead of `--remote` to load the same data for `npm run dev`.
 
@@ -53,6 +56,7 @@ The Worker comes up on its `*.workers.dev` URL with no change to fertilikey.org.
    ```bash
    npx wrangler d1 execute fertilikey --remote --command "DELETE FROM searchLog; DELETE FROM institutions"
    npx wrangler d1 execute fertilikey --remote --file backup/fertilikey-prod.data.sql
+   npx wrangler d1 execute fertilikey --remote --file scripts/searchlog-eastern-to-utc.sql
    ```
 
 2. In the Cloudflare dashboard, delete the `fertilikey.org` and `www` DNS records that point at the VPS. Cloudflare will not attach a Worker custom domain while those records exist.
